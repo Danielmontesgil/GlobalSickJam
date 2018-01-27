@@ -23,4 +23,16 @@ public class GSJEnums {
 		h1n1,
 		sida
 	}
+
+	public enum spots
+	{
+		tinto,
+		pizza,
+		ducha,
+		single,
+		group,
+		voidChair,
+		mono,
+		jara
+	}
 }

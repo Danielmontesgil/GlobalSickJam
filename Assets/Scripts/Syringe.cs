@@ -25,23 +25,24 @@ public class Syringe : Weapons {
 	// Update is called once per frame
 	void Update () {
         center = transform.position;
-        if (Input.GetButtonDown(StaticsInput.interaction))
-        {
-            SyringeDamage();
-        }
+        
     }
 
-	void SyringeDamage()
+	public override void Attack(InteractResponse response)
     {
-        Debug.Log("si");
-        hitColliders = Physics2D.OverlapCircleAll(center, radius,layerMask);
-        iSee = 0;
-        if (iSee < 2)
+        print(response.canInteract);
+        if (response.canInteract)
         {
-            syringe.enabled = true;
-        }else
-        {
-            Debug.Log("te vieron");
+            hitColliders = Physics2D.OverlapCircleAll(center, radius,layerMask);
+            iSee = 0;
+            if (hitColliders.Length < 2)
+            {
+                Debug.Log("no te vieron");
+            }
+            else
+            {
+                Debug.Log("te vieron");
+            }
         }
     }
     void OnDrawGizmosSelected()

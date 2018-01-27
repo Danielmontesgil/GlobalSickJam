@@ -11,7 +11,9 @@ public class ObjectsData : ScriptableObject {
 [Serializable]
 public class ObjectInformation
 {
+	[SerializeField] public int index;
 	[SerializeField] public bool helpYou;
+	[SerializeField] public string name;
 	[SerializeField] public GSJEnums.objectType objectType;
 	[SerializeField] public GSJEnums.illnesses illness;
 	[SerializeField] public Sprite sprite;

@@ -48,7 +48,7 @@ public class WeaponManager : MonoBehaviour {
         {
             case GSJEnums.objectType.syringe:
 
-                weapons[0].enabled = true;
+                weapons[3].enabled = true;
                 break;
         }
     }

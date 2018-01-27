@@ -14,12 +14,14 @@ public class Vision : MonoBehaviour {
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
+    public Weapons currentWeapon;
+
     void Update()
     {
         FindVisibleTargets();
     }
 
-    private void FindVisibleTargets()
+    public void FindVisibleTargets()
     {
         targertsInViewRadius = Physics2D.OverlapCircleAll(transform.position, range, targetMask);
         RaycastHit2D hit;
@@ -35,6 +37,7 @@ public class Vision : MonoBehaviour {
                 {
                     if (hit.transform.name == target.transform.name)
                     {
+                        
                         Interaction(target.gameObject);
                     }
                 }
@@ -51,8 +54,26 @@ public class Vision : MonoBehaviour {
         return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
-    public virtual void Interaction(GameObject cosa)
+    public void Interaction(GameObject cosa)
     {
-
+        if (Input.GetButtonDown(StaticsInput.interaction)) //RECOGER----------------------
+        {
+            Weapons weapons = cosa.GetComponent<Weapons>();
+            if (weapons != null)
+            {
+                WeaponManager.Instance.AddWeapon(weapons.data);
+                currentWeapon = weapons;
+            }
+        }
+        
+        if (Input.GetButtonDown(StaticsInput.interaction)) 
+        {
+            Spotsitos spot = cosa.GetComponent<Spotsitos>();
+            if (spot != null)
+            {
+                currentWeapon.Attack(Interactions.CanInteract(currentWeapon.data, spot.spotType));
+            }
+        }
     }
 }
+
