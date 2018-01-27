@@ -69,7 +69,8 @@ public class Vision : MonoBehaviour {
             Weapons weapons = cosa[0].GetComponent<Weapons>();
             if (weapons != null)
             {
-                WeaponManager.Instance.AddWeapon(weapons.data);
+                
+               // WeaponManager.Instance.AddWeapon(Interactions.GetNewWeapon(this.gameObject, currentWeapon, weapons).data);
                 currentWeapon = weapons;
             }
         }
