@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b897785c6197ea544abfc0f8325c6c08, type: 3}
+  m_Name: Inventory
+  m_EditorClassIdentifier: 
+  objectsInformation:
+  - helpYou: 1
+    objectType: 3
+    illness: 0
+    sprite: {fileID: 0}
+  - helpYou: 1
+    objectType: 4
+    illness: 1
+    sprite: {fileID: 0}
+  - helpYou: 0
+    objectType: 2
+    illness: 2
+    sprite: {fileID: 0}
+  - helpYou: 0
+    objectType: 1
+    illness: 0
+    sprite: {fileID: 0}
+  - helpYou: 0
+    objectType: 2
+    illness: 2
+    sprite: {fileID: 0}
+  - helpYou: 0
+    objectType: 0
+    illness: 3
+    sprite: {fileID: 0}
+  - helpYou: 0
+    objectType: 5
+    illness: 4
+    sprite: {fileID: 0}
+  - helpYou: 0
+    objectType: 4
+    illness: 5
+    sprite: {fileID: 0}
+  - helpYou: 0
+    objectType: 1
+    illness: 6
+    sprite: {fileID: 0}
+  - helpYou: 0
+    objectType: 1
+    illness: 0
+    sprite: {fileID: 0}

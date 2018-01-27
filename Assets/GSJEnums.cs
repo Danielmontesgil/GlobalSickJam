@@ -8,7 +8,9 @@ public class GSJEnums {
 		soap,
 		syringe, 
 		gas,
-		chinche
+		chinche, 
+		liquido,
+		polvo
 	}
 
 	public enum illnesses
