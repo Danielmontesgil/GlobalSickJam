@@ -6,4 +6,5 @@ public class Weapons : MonoBehaviour {
 
     [SerializeField]
     protected int index;
+    [SerializeField] public ObjectInformation data;
 }

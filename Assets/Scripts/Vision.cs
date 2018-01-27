@@ -35,7 +35,7 @@ public class Vision : MonoBehaviour {
                 {
                     if (hit.transform.name == target.transform.name)
                     {
-                        Interaction();
+                        Interaction(target.gameObject);
                     }
                 }
             }
@@ -51,7 +51,7 @@ public class Vision : MonoBehaviour {
         return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
-    public virtual void Interaction()
+    public virtual void Interaction(GameObject cosa)
     {
 
     }
