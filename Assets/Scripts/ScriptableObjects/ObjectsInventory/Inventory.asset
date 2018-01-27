@@ -12,57 +12,9 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   objectsInformation:
-  - index: 0
-    helpYou: 1
-    name: 
-    objectType: 3
-    illness: 0
-    sprite: {fileID: 0}
-  - index: 1
-    helpYou: 1
-    name: 
-    objectType: 4
-    illness: 1
-    sprite: {fileID: 0}
-  - index: 2
-    helpYou: 1
-    name: 
-    objectType: 2
-    illness: 2
-    sprite: {fileID: 0}
-  - index: 3
-    helpYou: 1
-    name: 
-    objectType: 1
-    illness: 0
-    sprite: {fileID: 0}
-  - index: 4
-    helpYou: 1
-    name: 
-    objectType: 2
-    illness: 2
-    sprite: {fileID: 0}
-  - index: 5
-    helpYou: 1
-    name: 
-    objectType: 0
-    illness: 3
-    sprite: {fileID: 0}
-  - index: 6
-    helpYou: 1
-    name: 
-    objectType: 5
-    illness: 4
-    sprite: {fileID: 0}
-  - index: 7
-    helpYou: 1
-    name: 
-    objectType: 4
-    illness: 5
-    sprite: {fileID: 0}
-  - index: 8
-    helpYou: 1
-    name: 
-    objectType: 1
-    illness: 6
-    sprite: {fileID: 0}
+  - {fileID: 114857476248233232, guid: 47889b5ecd5773747bec955f06ad0ef7, type: 2}
+  - {fileID: 114353122091795586, guid: 54d552e6636e4e344a646e5f4a03c50d, type: 2}
+  - {fileID: 114932349494522094, guid: 67d90b3039f02cd4c9dcde9f423526e5, type: 2}
+  - {fileID: 114591826324774510, guid: 0ccb053407eef3e42bc559b9afe6ebd3, type: 2}
+  - {fileID: 114590279328028394, guid: 5ad4924e327c8114da42cec029e42d53, type: 2}
+  - {fileID: 114320395104496150, guid: 2af59b1458e6afe408b61e53c736b988, type: 2}

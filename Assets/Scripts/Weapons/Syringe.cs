@@ -20,6 +20,7 @@ public class Syringe : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
+            Debug.Log(targets.Count);
             if (targets.Count < 2)
             {
                GameManagers.Instance.UpdateScore(response.score);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : Vision {
+public class MovementController : MonoBehaviour {
 
     private float speed;
 
@@ -51,14 +51,7 @@ public class MovementController : Vision {
         horizontal = Input.GetAxis(StaticsInput.Horizontal);
         vertical = Input.GetAxis(StaticsInput.Vertical);
 
-        if (Mathf.Abs(horizontal) > .1f)
-        move.y = 0;
-        else
         move.y = vertical;
-
-        if (Mathf.Abs(vertical) > .1f)
-        move.x = 0;
-        else
         move.x = horizontal;
         
 
