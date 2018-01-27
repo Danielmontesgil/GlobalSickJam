@@ -7,9 +7,28 @@ public class WeaponManager : MonoBehaviour {
     [SerializeField]
     private Weapons[] weapons;
 
+    private static WeaponManager instance;
+    public static WeaponManager Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }    
+    }
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -19,14 +38,17 @@ public class WeaponManager : MonoBehaviour {
 	}
 
 
-    void AddWeapon(ObjectInformation weapon)
+    public void AddWeapon(ObjectInformation weapon)
     {
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            weapons[i].enabled = false;
+        }
         switch (weapon.objectType)
         {
             case GSJEnums.objectType.syringe:
 
                 weapons[0].enabled = true;
-
                 break;
         }
     }

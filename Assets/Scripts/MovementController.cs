@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour {
+public class MovementController : Vision {
 
     private float speed;
 
@@ -52,5 +52,15 @@ public class MovementController : MonoBehaviour {
         delta = Time.deltaTime;
 
 	}
+
+    public override void Interaction(GameObject cosa)
+    {
+        if (Input.GetButtonDown(StaticsInput.interaction))
+        {
+            Weapons weapons = cosa.GetComponent<Weapons>();
+            if(weapons != null)
+                WeaponManager.Instance.AddWeapon(weapons.data);
+        }
+    }
 
 }
