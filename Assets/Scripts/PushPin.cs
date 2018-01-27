@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Soap : Weapons {
+public class PushPin : Weapons {
 
     [SerializeField]
     LayerMask layerMask;
@@ -19,11 +19,11 @@ public class Soap : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
-               GameManagers.Instance.UpdateScore(response.score);
+            GameManagers.Instance.UpdateScore(response.score);
         }
         else
         {
-               GameManagers.Instance.UpdateScore(response.score);
+            GameManagers.Instance.UpdateScore(response.score);
         }
     }
 }
