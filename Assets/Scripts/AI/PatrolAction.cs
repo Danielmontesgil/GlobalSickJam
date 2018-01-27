@@ -20,7 +20,7 @@ namespace Ai {
             controller.vision.transform.rotation = Quaternion.RotateTowards(controller.vision.transform.rotation, targetRot, controller.enemyStats.turnSpeed * controller.delta);
 
             if (controller.transform.position == controller.wayPointList[controller.nextWayPoint].transform.position) {
-				controller.nextWayPoint = (controller.nextWayPoint + 1) % controller.wayPointList.Length;
+				controller.nextWayPoint = (controller.nextWayPoint + Random.Range(0,controller.wayPointList.Length)) % controller.wayPointList.Length;
 			}
 		}
 
