@@ -13,6 +13,7 @@ public class MovementController : Vision {
 
     private Animator anim;
     private Rigidbody2D rb;
+   
 
     float delta;
     Vector2 move;
@@ -50,17 +51,6 @@ public class MovementController : Vision {
     void Update () {
 
         delta = Time.deltaTime;
-
 	}
-
-    public override void Interaction(GameObject cosa)
-    {
-        if (Input.GetButtonDown(StaticsInput.interaction))
-        {
-            Weapons weapons = cosa.GetComponent<Weapons>();
-            if(weapons != null)
-                WeaponManager.Instance.AddWeapon(weapons.data);
-        }
-    }
 
 }
