@@ -12,43 +12,63 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   objectsInformation:
-  - helpYou: 1
+  - index: 0
+    helpYou: 1
+    name: 
     objectType: 3
     illness: 0
     sprite: {fileID: 0}
-  - helpYou: 1
+  - index: 0
+    helpYou: 1
+    name: 
     objectType: 4
     illness: 1
     sprite: {fileID: 0}
-  - helpYou: 0
+  - index: 0
+    helpYou: 0
+    name: 
     objectType: 2
     illness: 2
     sprite: {fileID: 0}
-  - helpYou: 0
+  - index: 0
+    helpYou: 0
+    name: 
     objectType: 1
     illness: 0
     sprite: {fileID: 0}
-  - helpYou: 0
+  - index: 0
+    helpYou: 0
+    name: 
     objectType: 2
     illness: 2
     sprite: {fileID: 0}
-  - helpYou: 0
+  - index: 0
+    helpYou: 0
+    name: 
     objectType: 0
     illness: 3
     sprite: {fileID: 0}
-  - helpYou: 0
+  - index: 0
+    helpYou: 0
+    name: 
     objectType: 5
     illness: 4
     sprite: {fileID: 0}
-  - helpYou: 0
+  - index: 0
+    helpYou: 0
+    name: 
     objectType: 4
     illness: 5
     sprite: {fileID: 0}
-  - helpYou: 0
+  - index: 0
+    helpYou: 0
+    name: 
     objectType: 1
     illness: 6
     sprite: {fileID: 0}
-  - helpYou: 0
+  - index: 0
+    helpYou: 0
+    name: 
     objectType: 1
     illness: 0
     sprite: {fileID: 0}

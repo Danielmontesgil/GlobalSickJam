@@ -56,7 +56,7 @@ public class Vision : MonoBehaviour {
 
     public void Interaction(GameObject cosa)
     {
-        if (Input.GetButtonDown(StaticsInput.interaction)) //RECOGER----------------------
+        if (Input.GetButtonDown(StaticsInput.pickUp)) //RECOGER----------------------
         {
             Weapons weapons = cosa.GetComponent<Weapons>();
             if (weapons != null)

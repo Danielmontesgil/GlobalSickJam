@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 181850576}
   - component: {fileID: 181850577}
   - component: {fileID: 181850579}
-  - component: {fileID: 181850580}
   - component: {fileID: 181850578}
   - component: {fileID: 181850581}
   m_Layer: 0
@@ -160,6 +159,7 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: a4f2d2c6be9f89b468c5025e760e3e3e, type: 2}
   horizontal: 0
   vertical: 0
+  vision: {fileID: 992319411}
 --- !u!212 &181850574
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -213,7 +213,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.5932117, y: 0.0116288215, z: -0.0771271}
   m_LocalScale: {x: 5, y: 5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 992319412}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -246,7 +247,7 @@ Animator:
   m_GameObject: {fileID: 181850572}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: be4e5d4833033c6479caa018ac2b3c56, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -300,27 +301,9 @@ MonoBehaviour:
     objectType: 0
     illness: 0
     sprite: {fileID: 0}
---- !u!114 &181850580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 181850572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7106b43e78507846a2369152b7caa3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewAngle: 89
-  range: 5
-  targertsInViewRadius: []
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  currentWeapon: {fileID: 181850578}
+  Gas: {fileID: 0}
+  audioSource: {fileID: 0}
+  estallar: {fileID: 0}
 --- !u!114 &181850581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca94e943342dce4499506c183d2d3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spotType: 3
+  spotType: 4
 --- !u!1 &469027502
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca94e943342dce4499506c183d2d3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spotType: 3
+  spotType: 4
 --- !u!58 &706991629
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -711,6 +694,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &992319411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 992319412}
+  - component: {fileID: 992319413}
+  m_Layer: 0
+  m_Name: Vision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &992319412
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992319411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 181850575}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &992319413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 992319411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7106b43e78507846a2369152b7caa3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewAngle: 89
+  range: 5
+  targertsInViewRadius: []
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  currentWeapon: {fileID: 181850578}
 --- !u!1 &2141243968
 GameObject:
   m_ObjectHideFlags: 0
