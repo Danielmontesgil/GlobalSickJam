@@ -15,7 +15,7 @@ public class Interactions {
 		return response;
 	}
 
-	public static Weapons GetNewWeapon(GameObject player, ObjectInformation currentWeapon, ObjectInformation weaponToGet)
+	public static Weapons GetNewWeapon(GameObject player, Weapons currentWeapon, Weapons weaponToGet)
 	{
 		if (currentWeapon != null) {
 			DropWeapon (player);
