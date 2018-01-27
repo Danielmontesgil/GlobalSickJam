@@ -15,6 +15,20 @@ public class Interactions {
 		return response;
 	}
 
+	public static Weapons GetNewWeapon(GameObject player, ObjectInformation currentWeapon, ObjectInformation weaponToGet)
+	{
+		if (currentWeapon != null) {
+			DropWeapon (player);
+		}
+		return weaponToGet;
+	}
+
+	private static void DropWeapon(GameObject player)
+	{
+		player.GetComponentInChildren<Weapons> ();
+		player.transform.SetParent(null);
+	}
+
 	public static InteractResponse CanInteract(ObjectInformation data, GSJEnums.spots spot)
 	{
 		InteractResponse response = new InteractResponse();
@@ -49,6 +63,7 @@ public class Interactions {
 				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = true;
+				response.score = 3;
 				response.message = string.Format("Has infectado a la multitud con {0}", data.illness);
 			}else {
 				response = CantInteract (response, data);
@@ -59,6 +74,7 @@ public class Interactions {
 				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = true;
+				response.score = 5;
 				response.message = string.Format("Has infectado la pizza con {0}", data.illness);
 			}else {
 				response = CantInteract (response, data);
@@ -69,6 +85,7 @@ public class Interactions {
 				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = true;
+				response.score = 1;
 				response.message = string.Format("Has infectado a la multitud con {0}", data.illness);
 			}else {
 				response = CantInteract (response, data);
@@ -79,6 +96,7 @@ public class Interactions {
 				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = true;
+				response.score = 1;
 				response.message = string.Format("Has infectado a la máquina de tinto con {0}", data.illness);
 			}else {
 				response = CantInteract (response, data);
@@ -89,6 +107,7 @@ public class Interactions {
 				response.canInteract = true;
 				response.killYou = true;
 				response.loseObject = true;
+				response.score = 2;
 				response.message = string.Format("Has puesto {0} en la silla", data.illness);
 			}else {
 				response = CantInteract (response, data);
@@ -106,4 +125,9 @@ public class InteractResponse
 	public bool killYou;
 	public bool loseObject;
 	public string message;
+}
+
+public class InteractObject
+{
+
 }
