@@ -15,7 +15,7 @@ public class Vision : MonoBehaviour {
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
-    public Weapons currentWeapon;
+    public Weapons currentWeapon = new Weapons();
 
     void Update()
     {
@@ -64,7 +64,7 @@ public class Vision : MonoBehaviour {
 
     public void Interaction(List<GameObject> cosa)
     {
-        if (Input.GetButtonDown(StaticsInput.interaction)) //RECOGER----------------------
+        if (Input.GetButtonDown(StaticsInput.pickUp)) //RECOGER----------------------
         {
             Weapons weapons = cosa[0].GetComponent<Weapons>();
             if (weapons != null)
