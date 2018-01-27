@@ -9,7 +9,8 @@ public class Interactions {
 		response.canInteract = false;
 		response.killYou = false;
 		response.loseObject = false;
-		response.message = string.Format("Tu arma, {0}, no puede utilizarse en este sitio", data.name);
+		response.score = -2;
+		response.message = string.Format("Tu arma, {0}, no puede utilizarse en este sitio. Te vieron, pierdes {1}", data.name, response.score);
 
 		return response;
 	}
@@ -22,6 +23,7 @@ public class Interactions {
 			response.canInteract = false;
 			response.killYou = false;
 			response.loseObject = true;
+			response.score = 0;
 			response.message = "El jara ha tomado prestado por siempre tu objeto";
 			break;
 		case GSJEnums.spots.mono:
@@ -35,6 +37,7 @@ public class Interactions {
 				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = false;
+				response.score = 1;
 				response.message = string.Format ("Has infectado la ducha con {0}", data.illness);
 			}
 			else {
@@ -98,6 +101,7 @@ public class Interactions {
 
 public class InteractResponse
 {
+	public int score;
 	public bool canInteract;
 	public bool killYou;
 	public bool loseObject;
