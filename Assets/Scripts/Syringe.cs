@@ -5,14 +5,6 @@ using UnityEngine;
 public class Syringe : Weapons {
 
     [SerializeField]
-	Collider2D[] hitColliders;
-    [SerializeField]
-    Vector2 center;
-    [SerializeField]
-    float radius;
-    [SerializeField]
-    int iSee;
-    [SerializeField]
     BoxCollider2D syringe;
     [SerializeField]
     LayerMask layerMask;
@@ -22,37 +14,25 @@ public class Syringe : Weapons {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        center = transform.position;
-        
-    }
 
-	public override void Attack(InteractResponse response)
+	public override void Attack(InteractResponse response, List<GameObject> targets=null)
     {
         print(response.canInteract);
         if (response.canInteract)
         {
-            hitColliders = Physics2D.OverlapCircleAll(center, radius,layerMask);
-            iSee = 0;
-            if (hitColliders.Length < 2)
+            if (targets.Count < 2)
             {
-                Debug.Log("no te vieron");
-            }
-            else
+               GameManagers.Instance.UpdateScore(response.score);
+                Debug.Log(GameManagers.Instance.puntajeGlobal);
+            }else
             {
-                Debug.Log("te vieron");
+                GameManagers.Instance.UpdateScore(-2);
             }
+
         }
-    }
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(center, radius);
-    }
-    IEnumerator Disable()
-    {
-        yield return new WaitForSeconds(1f);
-        syringe.enabled = false;
+        else
+        {
+           GameManagers.Instance.UpdateScore(response.score);
+        }
     }
 }
