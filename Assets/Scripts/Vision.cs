@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyVision : MonoBehaviour {
+public class Vision : MonoBehaviour {
 
     [Range(0, 360)]
     public float viewAngle;
     public float range;
+    public Collider2D[] targertsInViewRadius;
+    private Vector2 dirToTarget;
+    private Transform target;
 
     public LayerMask targetMask;
     public LayerMask obstacleMask;
-
-    [HideInInspector]
-    public List<Transform> visibleTargets = new List<Transform>();
 
     void Update()
     {
@@ -21,21 +21,21 @@ public class EnemyVision : MonoBehaviour {
 
     private void FindVisibleTargets()
     {
-        visibleTargets.Clear();
-        Collider[] targertsInViewRadius = Physics.OverlapSphere(transform.position, range, targetMask);
-        RaycastHit hit;
+        targertsInViewRadius = Physics2D.OverlapCircleAll(transform.position, range, targetMask);
+        RaycastHit2D hit;
 
         for (int i = 0; i < targertsInViewRadius.Length; i++)
         {
-            Transform target = targertsInViewRadius[i].transform;
-            Vector2 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector2.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            target = targertsInViewRadius[i].transform;
+            dirToTarget = (target.position - transform.position).normalized;
+            if (Vector2.Angle(transform.up, dirToTarget) < viewAngle / 2)
             {
-                if (Physics.Raycast(transform.position, dirToTarget, out hit, range))
+                hit = Physics2D.Raycast(transform.position, dirToTarget, range);
+                if (hit!=null)
                 {
                     if (hit.transform.name == target.transform.name)
                     {
-
+                        Interaction();
                     }
                 }
             }
@@ -49,5 +49,10 @@ public class EnemyVision : MonoBehaviour {
             angleInDegrees += transform.eulerAngles.y;
         }
         return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    }
+
+    public virtual void Interaction()
+    {
+
     }
 }

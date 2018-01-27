@@ -2,13 +2,13 @@
 using System.Collections;
 using UnityEditor;
 
-[CustomEditor(typeof(EnemyVision))]
-public class EnemyVisionEditor : Editor
+[CustomEditor(typeof(Vision))]
+public class VisionEditor : Editor
 {
 
     void OnSceneGUI()
     {
-        EnemyVision fow = (EnemyVision)target;
+        Vision fow = (Vision)target;
         Handles.color = Color.white;
         Vector3 viewAngleA = fow.DirFromAngle(-fow.viewAngle / 2, false);
         Vector3 viewAngleB = fow.DirFromAngle(fow.viewAngle / 2, false);
