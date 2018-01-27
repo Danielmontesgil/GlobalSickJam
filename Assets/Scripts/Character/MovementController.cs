@@ -94,8 +94,8 @@ public class MovementController : Vision {
     {
         if (anim == null) return;
 
-        anim.SetFloat(StaticsInput.animHorizontal, horizontal * delta);
-        anim.SetFloat(StaticsInput.animVertical, vertical * delta);
+        anim.SetFloat(StaticsInput.animHorizontal, horizontal);
+        anim.SetFloat(StaticsInput.animVertical, vertical);
     }
 
 }
