@@ -273,10 +273,6 @@ MonoBehaviour:
     objectType: 1
     illness: 1
     sprite: {fileID: 0}
-  hitColliders: []
-  center: {x: 0, y: 0}
-  radius: 0
-  iSee: 0
   syringe: {fileID: 0}
   layerMask:
     serializedVersion: 2
@@ -438,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca94e943342dce4499506c183d2d3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spotType: 3
+  spotType: 2
 --- !u!1 &469027502
 GameObject:
   m_ObjectHideFlags: 0

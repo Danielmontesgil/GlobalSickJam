@@ -36,6 +36,10 @@ public class GameManagers : MonoBehaviour {
 
 	public bool Dia3Jeringa;
 	
+   public void UpdateScore(int points)
+    {
+        puntajeGlobal += points;
+    }
 	
 	public int PuntajeGlob{
         get { return puntajeGlobal; }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Syringe : Weapons {
+public class Soap : Weapons {
 
     [SerializeField]
     BoxCollider2D syringe;
@@ -10,21 +10,18 @@ public class Syringe : Weapons {
     LayerMask layerMask;
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
+    void Start()
+    {
 
-	public override void Attack(InteractResponse response, List<GameObject> targets=null)
+    }
+
+
+    public override void Attack(InteractResponse response, List<GameObject> targets = null)
     {
         print(response.canInteract);
         if (response.canInteract)
         {
-            if (targets.Count < 2)
-            {
-             //   GameManagers.Instance.UpdateScore(response.score);
-            }
-
+               // GameManagers.Instance.UpdateScore(response.score);
         }
         else
         {
