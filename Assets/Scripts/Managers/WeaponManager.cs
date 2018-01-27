@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour {
 
-    [SerializeField]
-    private Weapons[] weapons;
+    [SerializeField] public ObjectsData objectsData; //Scriptable
+
+    [SerializeField] private List<Weapons> weapons = new List<Weapons>();
 
     private static WeaponManager instance;
     public static WeaponManager Instance
@@ -29,7 +30,17 @@ public class WeaponManager : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-		
+            weapons.Add(gameObject.AddComponent<Syringe>());
+            weapons.Add(gameObject.AddComponent<Dust>());
+            weapons.Add(gameObject.AddComponent<PushPin>());
+            weapons.Add(gameObject.AddComponent<Settlement>());
+            weapons.Add(gameObject.AddComponent<Soap>());
+            weapons.Add(gameObject.AddComponent<GasGrenade>());
+        for(int i = 0; i < objectsData.objectsInformation.Count; i++)
+        {
+            weapons[i].data = objectsData.objectsInformation[i].data;
+            weapons[i].enabled = false;
+        }
 	}
 	
 	// Update is called once per frame
@@ -38,20 +49,17 @@ public class WeaponManager : MonoBehaviour {
 	}
 
 
-    public void AddWeapon(ObjectInformation weapon)
+    public void AddWeapon(Weapons weapon)
     {
-        for (int i = 0; i < weapons.Length; i++)
+        for (int i = 0; i < weapons.Count; i++)
         {
             weapons[i].enabled = false;
         }
-        switch (weapon.objectType)
-        {
-            case GSJEnums.objectType.syringe:
 
-                weapons[3].enabled = true;
-                break;
+        for (int i = 0; i < weapons.Count; i++)
+        {
+            if (weapon.data.index == weapons[i].data.index)
+                weapons[i].enabled = true;
         }
     }
-
-
 }
