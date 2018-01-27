@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4014e61b35cb494eabb28ef7c133508, type: 3}
+  m_Name: PatrolScaner
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 5043fc5d3f824a2488bd7e13caf65bc2, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 4e0696067415bac4db6a57e3538e6cc2, type: 2}
+    trueState: {fileID: 11400000, guid: 813dd0f8baca91d468987d922c88e664, type: 2}
+    falseState: {fileID: 11400000, guid: 68111ab2897397742b147b5d08650e06, type: 2}
+  sceneGizmoColor: {r: 0, g: 1, b: 0.048275948, a: 1}
