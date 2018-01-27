@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour {
+public class MovementController : Vision {
 
     private float speed;
 
@@ -13,6 +13,7 @@ public class MovementController : MonoBehaviour {
 
     private Animator anim;
     private Rigidbody2D rb;
+   
 
     float delta;
     Vector2 move;
@@ -50,7 +51,6 @@ public class MovementController : MonoBehaviour {
     void Update () {
 
         delta = Time.deltaTime;
-
 	}
 
 }

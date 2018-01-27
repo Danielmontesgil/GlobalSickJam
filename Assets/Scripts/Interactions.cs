@@ -32,7 +32,7 @@ public class Interactions {
 			break;
 		case GSJEnums.spots.ducha:
 			if (data.objectType == GSJEnums.objectType.soap) {
-				response.canInteract = false;
+				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = false;
 				response.message = string.Format ("Has infectado la ducha con {0}", data.illness);
@@ -43,7 +43,7 @@ public class Interactions {
 			break;
 		case GSJEnums.spots.group:
 			if (data.objectType == GSJEnums.objectType.gas) {
-				response.canInteract = false;
+				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = true;
 				response.message = string.Format("Has infectado a la multitud con {0}", data.illness);
@@ -53,7 +53,7 @@ public class Interactions {
 			break;
 		case GSJEnums.spots.pizza:
 			if (data.objectType == GSJEnums.objectType.polvo) {
-				response.canInteract = false;
+				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = true;
 				response.message = string.Format("Has infectado la pizza con {0}", data.illness);
@@ -63,7 +63,7 @@ public class Interactions {
 			break;
 		case GSJEnums.spots.single:
 			if (data.objectType == GSJEnums.objectType.syringe) {
-				response.canInteract = false;
+				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = true;
 				response.message = string.Format("Has infectado a la multitud con {0}", data.illness);
@@ -73,7 +73,7 @@ public class Interactions {
 			break;
 		case GSJEnums.spots.tinto:
 			if (data.objectType == GSJEnums.objectType.liquido) {
-				response.canInteract = false;
+				response.canInteract = true;
 				response.killYou = false;
 				response.loseObject = true;
 				response.message = string.Format("Has infectado a la máquina de tinto con {0}", data.illness);
@@ -83,7 +83,7 @@ public class Interactions {
 			break;
 		case GSJEnums.spots.voidChair:
 			if (data.objectType == GSJEnums.objectType.chinche) {
-				response.canInteract = false;
+				response.canInteract = true;
 				response.killYou = true;
 				response.loseObject = true;
 				response.message = string.Format("Has puesto {0} en la silla", data.illness);
