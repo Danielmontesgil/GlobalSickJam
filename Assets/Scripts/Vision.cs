@@ -70,7 +70,7 @@ public class Vision : MonoBehaviour {
             if (weapons != null)
             {
                 
-               // WeaponManager.Instance.AddWeapon(Interactions.GetNewWeapon(this.gameObject, currentWeapon, weapons).data);
+                WeaponManager.Instance.AddWeapon(Interactions.GetNewWeapon(this.gameObject, currentWeapon, weapons).data);
                 currentWeapon = weapons;
             }
         }
