@@ -33,7 +33,9 @@ namespace Ai {
 
 		void Setup () {
 
-            Vector2 targetDir = stateController.chaseTarget.transform.position - transform.position;
+			Vector2 targetDir = Vector2.one;
+			if(stateController.chaseTarget != null)
+            	targetDir = stateController.chaseTarget.transform.position - transform.position;
 
 
             animator.SetFloat("vertical",  -targetDir.normalized.y, speedDampTime, Time.deltaTime);

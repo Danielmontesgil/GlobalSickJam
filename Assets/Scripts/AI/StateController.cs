@@ -17,7 +17,7 @@ namespace Ai {
 
     [HideInInspector] public int nextWayPoint;
     [HideInInspector] public int randomAttack;
-    [HideInInspector] public GameObject chaseTarget;
+    [SerializeField] public MovementController chaseTarget;
     [HideInInspector] public float stateTimeElapsed;
     [HideInInspector] public float dist;
 
@@ -42,8 +42,7 @@ namespace Ai {
 
       enemyAnimation.Init();
 
-      if (chaseTarget == null)
-      chaseTarget = GameObject.FindGameObjectWithTag ("Player");
+	  StartCoroutine (FindCharacter ());
 
       GameObject[] wayPointObjects = GameObject.FindGameObjectsWithTag ("Waypoint");
       wayPointList = new Transform[wayPointObjects.Length];
@@ -54,6 +53,16 @@ namespace Ai {
         Debug.Log (wayPointList.Length);
       }
     }
+
+	IEnumerator FindCharacter()
+	{
+			chaseTarget = GameObject.FindObjectOfType<MovementController>();
+
+		while(chaseTarget == null){
+				chaseTarget = GameObject.FindObjectOfType<MovementController>();
+			yield return null;
+		}
+	}
 
     public void Update () {
       delta = Time.deltaTime;
@@ -72,6 +81,10 @@ namespace Ai {
                 if (audioSuJuejo == null) return;
                 audioSource.PlayOneShot(audioSuJuejo, 1f);
                 wasRang = true;
+            }
+            if (GameManagers.Instance.lifes <= 0)
+            {
+                GameManagers.Instance.GameOver(false);
             }
         }
 

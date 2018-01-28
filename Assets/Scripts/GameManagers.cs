@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagers : MonoBehaviour {
 
@@ -8,7 +9,18 @@ public class GameManagers : MonoBehaviour {
 
 	 public static GameManagers Instance { get {return instance;}}
 
-    public int lifes = 50;
+    [SerializeField]
+    private string Dia3;
+    [SerializeField]
+    private string scenaFinalGano;
+    [SerializeField]
+    private string scenaFinalPerdio;
+    [SerializeField]
+    private string scenaFinalCapturado;
+    [SerializeField]
+    public float time = 180;
+
+    public int lifes = 100;
 	 public int puntajeGlobal=0;
 	 //Dia 1
      //variable que dice que mesa puso chinches
@@ -88,8 +100,20 @@ public class GameManagers : MonoBehaviour {
 		get{return Dia3Jeringa;}
 		set{Dia3Jeringa=value;}
 	}
-	void Start () {
 
+    private void OnEnable()
+    {
+        SceneController.onLoadAdd += Timer;
+    }
+
+    private void OnDisable()
+    {
+        SceneController.onLoadAdd += Timer;
+    }
+
+    void Start () {
+
+        
 		if(instance==null){
 			instance=this;
 		}else{
@@ -97,4 +121,62 @@ public class GameManagers : MonoBehaviour {
 		}
 		 DontDestroyOnLoad(this.gameObject);	
 	}
+
+    void Timer()
+    {
+        StartCoroutine(DayTimer());
+    }
+
+    public void FinalDay()
+    {
+        if (SceneManager.GetActiveScene().name == Dia3)
+        {
+            if (puntajeGlobal <= 9)
+            {
+                SceneManager.LoadScene(scenaFinalPerdio);
+            }
+            if (puntajeGlobal>=10 || puntajeGlobal<=15)
+            {
+                SceneManager.LoadScene(scenaFinalCapturado);
+            }
+            if (puntajeGlobal >= 16 || puntajeGlobal <= 21)
+            {
+                SceneManager.LoadScene(scenaFinalGano);
+            }
+        }
+    }
+
+    public void GameOver(bool mono)
+    {
+        if (mono)
+        {
+            SceneManager.LoadScene(scenaFinalPerdio);
+        }
+        else
+        {
+            SceneManager.LoadScene(scenaFinalCapturado);
+        }
+        
+    }
+    public int contador=1;
+    IEnumerator DayTimer()
+    {
+
+        Debug.Log("Empezo");
+
+        float t = time;
+
+        while(t > 0)
+        {
+            t -= Time.deltaTime;
+
+            Debug.Log(t);
+            yield return null;
+        }
+        Debug.Log("Termino");
+        SceneController.Instance.RemoveScene();
+        contador++;
+        string levelName = string.Format("level{0}", contador);
+        SceneController.Instance.LoadLevel(levelName);
+    }
 }

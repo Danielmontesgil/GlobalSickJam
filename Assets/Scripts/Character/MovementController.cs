@@ -51,9 +51,9 @@ public class MovementController : MonoBehaviour {
         horizontal = Input.GetAxis(StaticsInput.Horizontal);
         vertical = Input.GetAxis(StaticsInput.Vertical);
 
+
         move.y = vertical;
         move.x = horizontal;
-        
 
         rb.velocity = move.normalized * speed * delta;
     }

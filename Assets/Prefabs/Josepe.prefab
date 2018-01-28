@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114195360307018890}
   - component: {fileID: 114423212122180050}
   - component: {fileID: 61682097804295752}
-  - component: {fileID: 82203436145201602}
+  - component: {fileID: 82520599854703586}
   m_Layer: 9
   m_Name: Josepe
   m_TagString: Untagged
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1500726692536900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.701601, y: -0.2426073, z: 0}
+  m_LocalPosition: {x: 4.6314664, y: -0.65519136, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children:
   - {fileID: 4526970064842914}
@@ -121,7 +121,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5502975, y: 3.050549}
   m_EdgeRadius: 0
---- !u!82 &82203436145201602
+--- !u!82 &82520599854703586
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -176,7 +176,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -200,7 +200,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
 --- !u!95 &95205454015106842
 Animator:
   serializedVersion: 3
@@ -232,9 +232,10 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 67ba7168042f537458f49827715f09d4, type: 2}
   enemyStats: {fileID: 11400000, guid: 58425c9551e17a34fb100829608ad602, type: 2}
   remainState: {fileID: 11400000, guid: 68111ab2897397742b147b5d08650e06, type: 2}
-  wayPointList: []
+  wayPointList:
+  - {fileID: 0}
   colliders: []
-  audioSource: {fileID: 82203436145201602}
+  audioSource: {fileID: 82520599854703586}
   audioSuJuejo: {fileID: 8300000, guid: c436a7be4c5b5a94cadaf9f56dd3a544, type: 3}
   nextWayPoint: 0
   randomAttack: 0

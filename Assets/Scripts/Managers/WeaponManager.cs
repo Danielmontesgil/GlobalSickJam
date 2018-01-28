@@ -63,7 +63,7 @@ public class WeaponManager : MonoBehaviour {
             if (weapon.data.index == weapons[i].data.index)
             {
                 weapons[i].enabled = true;
-
+				UIManager.Instance.ChangeObjectCanvas (weapons [i].data.sprite, weapons [i].data.name);
             }
 
         }
