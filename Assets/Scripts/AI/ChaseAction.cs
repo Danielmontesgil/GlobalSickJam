@@ -15,12 +15,12 @@ namespace Ai {
                 controller.transform.position = Vector2.MoveTowards(controller.gameObject.transform.position, 
                     controller.chaseTarget.transform.position, controller.enemyStats.moveSpeed * controller.delta);
 
-                Vector2 targetDir = controller.chaseTarget.transform.position - controller.vision.transform.position;
+                Vector2 targetDir = controller.chaseTarget.transform.position - controller.transform.position;
 
                 targetDir.x = 0;
 
                 Quaternion targetRot = Quaternion.LookRotation(targetDir);
-                controller.vision.transform.rotation = Quaternion.RotateTowards(controller.vision.transform.rotation, targetRot, controller.enemyStats.turnSpeed * controller.delta);
+                //controller.transform.rotation = Quaternion.RotateTowards(controller.transform.rotation, targetRot, controller.enemyStats.turnSpeed * controller.delta);
             }
         }
 	}

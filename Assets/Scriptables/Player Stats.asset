@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: Player Stats
   m_EditorClassIdentifier: 
   lives: 0
-  walkSpeed: 300
+  walkSpeed: 150

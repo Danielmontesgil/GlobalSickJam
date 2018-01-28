@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212193856810999316}
   - component: {fileID: 61088240565610784}
   - component: {fileID: 114932349494522094}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Gas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991669484586624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.73, y: 0.08, z: -0.06640625}
+  m_LocalPosition: {x: 6.36, y: -1.56, z: -0.06640625}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -119,10 +119,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 14992111
+  m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0383f407bd1ea7c4b879028869830596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bc0c239b6c06b74a9b4c4043789b59a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

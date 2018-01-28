@@ -18,20 +18,20 @@ public class Interactions {
 	public static Weapons GetNewWeapon(GameObject player, Weapons weaponToGet, Weapons currentWeapon = null)
 	{
 		if (currentWeapon != null) {
-			DropWeapon (player,currentWeapon);
+			DropWeapon (player,currentWeapon, weaponToGet);
 		}
 		return weaponToGet;
 	}
 
-	private static void DropWeapon(GameObject player,Weapons backWeapon)
+	private static void DropWeapon(GameObject player,Weapons backWeapon, Weapons weaponToGet)
     {
         if (backWeapon != null)
         {
-            backWeapon.transform.position = player.transform.position;
+            backWeapon.transform.position = weaponToGet.gameObject.transform.position;
             backWeapon.gameObject.SetActive(true);
         }
-        player.GetComponentInChildren<Weapons> ();
-		player.transform.SetParent(null);
+  //      player.GetComponentInChildren<Weapons> ();
+		//player.transform.SetParent(null);
 	}
 
 	public static InteractResponse CanInteract(ObjectInformation data, GSJEnums.spots spot)
@@ -39,17 +39,20 @@ public class Interactions {
 		InteractResponse response = new InteractResponse();
 		switch (spot) {
 		case GSJEnums.spots.jara:
-			response.canInteract = false;
+			response.canInteract = true;
 			response.killYou = false;
 			response.loseObject = true;
 			response.score = 0;
 			response.message = "El jara ha tomado prestado por siempre tu objeto";
-			break;
+                Debug.Log("aora io soi pior");
+                break;
 		case GSJEnums.spots.mono:
-			response.canInteract = false;
+			response.canInteract = true;
 			response.killYou = true;
 			response.loseObject = true;
-			response.message = "Tu arma es efectiva pero el mono es PIOR";
+                response.score = -999999999;
+                response.message = "Tu arma es efectiva pero el mono es PIOR";
+                Debug.Log("soi pior");
 			break;
 		case GSJEnums.spots.ducha:
 			if (data.objectType == GSJEnums.objectType.soap) {
