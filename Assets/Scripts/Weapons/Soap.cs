@@ -19,6 +19,8 @@ public class Soap : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
+			sound.Play ();
+
                GameManagers.Instance.UpdateScore(response.score);
         }
         else

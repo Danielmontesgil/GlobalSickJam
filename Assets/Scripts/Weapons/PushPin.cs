@@ -16,9 +16,11 @@ public class PushPin : Weapons {
 
     public override void Attack(InteractResponse response, List<GameObject> targets = null)
     {
+
         print(response.canInteract);
         if (response.canInteract)
         {
+			sound.Play ();
             GameManagers.Instance.UpdateScore(response.score);
         }
         else
