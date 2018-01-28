@@ -14,6 +14,7 @@ namespace Ai {
     public Collider[] colliders;
     public AudioSource audioSource;
     public AudioClip audioSuJuejo;
+        public bool followWaypoints;
 
     [HideInInspector] public int nextWayPoint;
     [HideInInspector] public int randomAttack;
@@ -42,6 +43,7 @@ namespace Ai {
 
       enemyAnimation.Init();
 
+      if(!followWaypoints)
 	  StartCoroutine (FindCharacter ());
 
       GameObject[] wayPointObjects = GameObject.FindGameObjectsWithTag ("Waypoint");

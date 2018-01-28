@@ -19,6 +19,8 @@ public class Settlement : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
+			sound.Play ();
+
             GameManagers.Instance.UpdateScore(response.score);
         }
         else
@@ -34,7 +36,13 @@ public class Settlement : Weapons {
 		UIManager.Instance.FeedBackText (response.message);
 		if (response.loseObject) {
 			UIManager.Instance.ChangeObjectCanvas (null);
-			this.enabled = false;
+			//vision.LoseWeapon ();
+			Vision.Instance.LoseWeapon ();
+			for (int i = 0; i < WeaponManager.Instance.weapons.Count; i++) {
+				if (data.index == WeaponManager.Instance.weapons [i].data.index) {
+					WeaponManager.Instance.weapons [i].enabled = false;
+				}
+			}
 
 		}
     }

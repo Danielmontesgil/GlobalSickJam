@@ -64,9 +64,11 @@ public class SceneController : MonoBehaviour {
 			onUnload ();
 	}
 
-	public void LoadLevel()
+	public void LoadLevel(string nameLevel="")
 	{
-		StartCoroutine (ChangeSceneAdd ());
+        if (!nameLevel.Equals(""))
+            levelName = nameLevel;
+        StartCoroutine (ChangeSceneAdd ());
 	}
 
 	IEnumerator ChangeSceneAdd()

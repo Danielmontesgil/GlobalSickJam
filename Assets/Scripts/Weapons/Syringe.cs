@@ -18,6 +18,8 @@ public class Syringe : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
+			sound.Play ();
+
             Debug.Log(targets.Count);
             if (targets.Count < 2)
             {
@@ -40,7 +42,13 @@ public class Syringe : Weapons {
 		UIManager.Instance.FeedBackText (response.message);
 		if (response.loseObject) {
 			UIManager.Instance.ChangeObjectCanvas (null);
-			this.enabled = false;
+			//vision.LoseWeapon ();
+			Vision.Instance.LoseWeapon ();
+			for (int i = 0; i < WeaponManager.Instance.weapons.Count; i++) {
+				if (data.index == WeaponManager.Instance.weapons [i].data.index) {
+					WeaponManager.Instance.weapons [i].enabled = false;
+				}
+			}
 
 		}
     }

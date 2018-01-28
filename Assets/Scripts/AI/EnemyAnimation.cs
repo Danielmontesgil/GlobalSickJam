@@ -34,12 +34,20 @@ namespace Ai {
 		void Setup () {
 
 			Vector2 targetDir = Vector2.one;
-			if(stateController.chaseTarget != null)
-            	targetDir = stateController.chaseTarget.transform.position - transform.position;
+            if (stateController.chaseTarget != null)
+            {
+                targetDir = stateController.chaseTarget.transform.position - transform.position;
 
+                animator.SetFloat("vertical", -targetDir.normalized.y, speedDampTime, Time.deltaTime);
+                animator.SetFloat("horizontal", targetDir.normalized.x, speedDampTime, Time.deltaTime);
+            }
+            else
+            {
+                targetDir = stateController.wayPointList[stateController.nextWayPoint].transform.position - transform.position;
 
-            animator.SetFloat("vertical",  -targetDir.normalized.y, speedDampTime, Time.deltaTime);
-            animator.SetFloat("horizontal", targetDir.normalized.x, speedDampTime, Time.deltaTime);
+                animator.SetFloat("vertical", -targetDir.normalized.y, speedDampTime, Time.deltaTime);
+                animator.SetFloat("horizontal", targetDir.normalized.x, speedDampTime, Time.deltaTime);
+            }
 
             if (attackArea == null) return;
             if (-targetDir.normalized.x > .5f)

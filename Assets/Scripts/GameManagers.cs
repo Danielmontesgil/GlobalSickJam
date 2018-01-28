@@ -17,6 +17,8 @@ public class GameManagers : MonoBehaviour {
     private string scenaFinalPerdio;
     [SerializeField]
     private string scenaFinalCapturado;
+    [SerializeField]
+    public float time = 180;
 
     public int lifes = 100;
 	 public int puntajeGlobal=0;
@@ -98,8 +100,20 @@ public class GameManagers : MonoBehaviour {
 		get{return Dia3Jeringa;}
 		set{Dia3Jeringa=value;}
 	}
-	void Start () {
 
+    private void OnEnable()
+    {
+        SceneController.onLoadAdd += Timer;
+    }
+
+    private void OnDisable()
+    {
+        SceneController.onLoadAdd += Timer;
+    }
+
+    void Start () {
+
+        
 		if(instance==null){
 			instance=this;
 		}else{
@@ -107,6 +121,11 @@ public class GameManagers : MonoBehaviour {
 		}
 		 DontDestroyOnLoad(this.gameObject);	
 	}
+
+    void Timer()
+    {
+        StartCoroutine(DayTimer());
+    }
 
     public void FinalDay()
     {
@@ -138,5 +157,26 @@ public class GameManagers : MonoBehaviour {
             SceneManager.LoadScene(scenaFinalCapturado);
         }
         
+    }
+    public int contador=1;
+    IEnumerator DayTimer()
+    {
+
+        Debug.Log("Empezo");
+
+        float t = time;
+
+        while(t > 0)
+        {
+            t -= Time.deltaTime;
+
+            Debug.Log(t);
+            yield return null;
+        }
+        Debug.Log("Termino");
+        SceneController.Instance.RemoveScene();
+        contador++;
+        string levelName = string.Format("level{0}", contador);
+        SceneController.Instance.LoadLevel(levelName);
     }
 }
