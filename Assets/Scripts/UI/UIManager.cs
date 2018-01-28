@@ -13,7 +13,9 @@ public class UIManager : MonoBehaviour {
 
 	[SerializeField] private Image characterImage;
 	[SerializeField] private Image objectImage;
+	[SerializeField] private Text objectName;
 	[SerializeField] private Text feedBackText;
+	[SerializeField] private Sprite voidObject;
 
 
 	void Awake()
@@ -26,7 +28,9 @@ public class UIManager : MonoBehaviour {
 	}
 
 	void Start () {
-		
+		objectName.text = string.Format ("Object: \n");
+		feedBackText.text = string.Format ("LastAction: \n ");
+
 	}
 	
 	// Update is called once per frame
@@ -34,9 +38,13 @@ public class UIManager : MonoBehaviour {
 		
 	}
 
-	public void ChangeObjectCanvas(Sprite objectSprite)
+	public void ChangeObjectCanvas(Sprite objectSprite=voidObject, string objectName = "")
 	{
 		objectImage.sprite = objectSprite;
+		if(objectName.Equals(""))
+			this.objectName.text = string.Format ("Object: \n");
+		else
+			this.objectName.text = string.Format ("Object: \n {0}", objectName);
 	}
 
 	public void ChangeCharactersCanvas(Sprite characterSprite)
@@ -46,6 +54,6 @@ public class UIManager : MonoBehaviour {
 
 	public void FeedBackText(string message)
 	{
-		feedBackText.text = message;
+		feedBackText.text = string.Format ("LastAction: \n {0}", message);
 	}
 }

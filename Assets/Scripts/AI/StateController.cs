@@ -42,8 +42,7 @@ namespace Ai {
 
       enemyAnimation.Init();
 
-      if (chaseTarget == null)
-      chaseTarget = GameObject.FindGameObjectWithTag ("Player");
+			StartCoroutine (FindCharacter ());
 
       GameObject[] wayPointObjects = GameObject.FindGameObjectsWithTag ("Waypoint");
       wayPointList = new Transform[wayPointObjects.Length];
@@ -54,6 +53,16 @@ namespace Ai {
         Debug.Log (wayPointList.Length);
       }
     }
+
+		IEnumerator FindCharacter()
+		{
+			chaseTarget = GameObject.FindGameObjectWithTag ("Player");
+
+			while(chaseTarget == null){
+				chaseTarget = GameObject.FindGameObjectWithTag ("Player");
+				yield return null;
+			}
+		}
 
     public void Update () {
       delta = Time.deltaTime;

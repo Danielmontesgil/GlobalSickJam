@@ -30,8 +30,11 @@ public class Interactions {
             backWeapon.transform.position = weaponToGet.gameObject.transform.position;
             backWeapon.gameObject.SetActive(true);
         }
-  //      player.GetComponentInChildren<Weapons> ();
-		//player.transform.SetParent(null);
+	}
+
+	private static void LoseWeapon()
+	{
+		
 	}
 
 	public static InteractResponse CanInteract(ObjectInformation data, GSJEnums.spots spot)
@@ -58,7 +61,7 @@ public class Interactions {
 			if (data.objectType == GSJEnums.objectType.soap) {
 				response.canInteract = true;
 				response.killYou = false;
-				response.loseObject = false;
+				response.loseObject = true;
 				response.score = 1;
 				response.message = string.Format ("Has infectado la ducha con {0}", data.illness);
 			}
@@ -113,7 +116,7 @@ public class Interactions {
 		case GSJEnums.spots.voidChair:
 			if (data.objectType == GSJEnums.objectType.chinche) {
 				response.canInteract = true;
-				response.killYou = true;
+				response.killYou = false;
 				response.loseObject = true;
 				response.score = 2;
 				response.message = string.Format("Has puesto {0} en la silla", data.illness);

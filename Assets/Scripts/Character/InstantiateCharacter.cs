@@ -11,11 +11,15 @@ public class InstantiateCharacter : MonoBehaviour {
 
 	void Awake()
 	{
-		spawnPoint = GameObject.FindGameObjectWithTag ("spawn");
 	}
 
 	void OnEnable()
 	{
+		SceneController.onLoadAdd += SpawnCharacter;
+	}
+	void OnDisable()
+	{
+		SceneController.onLoadAdd -= SpawnCharacter;
 	}
 
 	void Start () 
@@ -25,7 +29,6 @@ public class InstantiateCharacter : MonoBehaviour {
 			if (characters.characters [i].index == indexPlayerToUse)
 				UIManager.Instance.ChangeCharactersCanvas (characters.characters [i].icon);
 		}
-		SpawnCharacter ();
 	}
 	
 	// Update is called once per frame
@@ -35,6 +38,7 @@ public class InstantiateCharacter : MonoBehaviour {
 
 	private void SpawnCharacter()
 	{
+		spawnPoint = GameObject.FindGameObjectWithTag ("spawn");
 		for (int i = 0; i < characters.characters.Count; i++) {
 			if (characters.characters [i].index == indexPlayerToUse)
 				Instantiate(characters.characters [i].playerObject, spawnPoint.transform.position, characters.characters [i].playerObject.transform.rotation);

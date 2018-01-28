@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour {
 
+	private static SceneController instance;
+	public static SceneController Instance
+	{
+		get{ return instance;}
+	}
+
+
 	public delegate void ScenesBehaviour();
 	public static event ScenesBehaviour onLoadAdd;
 	public static event ScenesBehaviour onUnload;
@@ -13,13 +20,26 @@ public class SceneController : MonoBehaviour {
 	[SerializeField] private float timeToLoadLevel;
 	[SerializeField] private bool changeInStart;
 
+	private AsyncOperation loadLevel;
+
 	// Use this for initialization
 	void Start () {
 		if (changeInStart) {
-			LoadScene ();
+			LoadLevel ();
 		}
 	}
 
+	private void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(this.gameObject);
+		}    
+	}
 
 	public void OnPlayAgain()
 	{
@@ -35,7 +55,7 @@ public class SceneController : MonoBehaviour {
 			onUnload ();
 	}
 
-	public void LoadLevel(string levelName)
+	public void LoadLevel()
 	{
 		StartCoroutine (ChangeSceneAdd ());
 	}
@@ -43,7 +63,10 @@ public class SceneController : MonoBehaviour {
 	IEnumerator ChangeSceneAdd()
 	{
 		yield return new WaitForSeconds (timeToLoadLevel);
-		SceneManager.LoadScene (levelName, LoadSceneMode.Additive);
+		loadLevel = SceneManager.LoadSceneAsync (levelName, LoadSceneMode.Additive);
+		while (!loadLevel.isDone) {
+			yield return null;
+		}
 		if (onLoadAdd != null)
 			onLoadAdd ();
 	}
