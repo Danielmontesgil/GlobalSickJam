@@ -33,5 +33,7 @@ public class Syringe : Weapons {
         {
            GameManagers.Instance.UpdateScore(response.score);
         }
+		UIManager.Instance.FeedBackText (response.message);
+
     }
 }

@@ -19,5 +19,7 @@ public class GasGrenade : Weapons {
                     audioSource.PlayOneShot(estallar);
             }
         }
+		UIManager.Instance.FeedBackText (response.message);
+
     }
 }
