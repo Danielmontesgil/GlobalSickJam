@@ -61,24 +61,23 @@ public class MovementController : MonoBehaviour {
     void Rotation()
     {
         if (vision == null) return;
-
         if (horizontal > 0)
         {
-            Quaternion rotation = Quaternion.Euler(new Vector2(0, 90f));
-            vision.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 270f));
+            vision.transform.localRotation = rotation;
         }else if (horizontal < 0)
         {
-            Quaternion rotation = Quaternion.Euler(new Vector2(0, -90f));
-            vision.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+            vision.transform.localRotation = rotation;
         }else if (vertical > 0)
         {
-            Quaternion rotation = Quaternion.Euler(new Vector2(0, 0f));
-            vision.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 0f));
+            vision.transform.localRotation = rotation;
         }
         else if (vertical < 0)
         {
-            Quaternion rotation = Quaternion.Euler(new Vector2(0, 180f));
-            vision.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 180f));
+            vision.transform.localRotation = rotation;
         }
 
     }

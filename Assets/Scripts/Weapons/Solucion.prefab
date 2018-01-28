@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212969763366767916}
   - component: {fileID: 61729710882553504}
   - component: {fileID: 114320395104496150}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Solucion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

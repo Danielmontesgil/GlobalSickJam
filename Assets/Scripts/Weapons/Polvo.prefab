@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212367092597723016}
   - component: {fileID: 61844445396372780}
   - component: {fileID: 114590279328028394}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Polvo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

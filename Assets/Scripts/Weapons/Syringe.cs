@@ -5,8 +5,6 @@ using UnityEngine;
 public class Syringe : Weapons {
 
     [SerializeField]
-    BoxCollider2D syringe;
-    [SerializeField]
     LayerMask layerMask;
 
     // Use this for initialization

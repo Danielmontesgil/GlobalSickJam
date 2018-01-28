@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212082997903162574}
   - component: {fileID: 61669569141746544}
   - component: {fileID: 114353122091795586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chinche
   m_TagString: Untagged
   m_Icon: {fileID: 0}

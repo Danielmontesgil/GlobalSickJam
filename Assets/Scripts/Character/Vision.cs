@@ -11,12 +11,12 @@ public class Vision : MonoBehaviour
     public Collider2D[] targertsInViewRadius;
     private Vector2 dirToTarget;
     private Transform target;
-    private List<GameObject> targets = new List<GameObject>();
+    public List<GameObject> targets = new List<GameObject>();
 
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
-    public Weapons currentWeapon = new Weapons();
+    public Weapons currentWeapon ;
 
     void Update()
     {
@@ -34,10 +34,10 @@ public class Vision : MonoBehaviour
             dirToTarget = (target.position - transform.position).normalized;
             if (Vector2.Angle(transform.up, dirToTarget) < viewAngle / 2)
             {
-
                 hit = Physics2D.Raycast(transform.position, dirToTarget, range);
-                if (hit != null)
+                if (hit)
                 {
+                    Debug.Log(hit.transform.name);
                     if (hit.transform.name == target.transform.name)
                     {
                         targets.Add(target.transform.gameObject);
@@ -90,6 +90,7 @@ public class Vision : MonoBehaviour
             {
                 if (currentWeapon != null)
                     currentWeapon.Attack(Interactions.CanInteract(currentWeapon.data, spot.spotType), cosa);
+                
             }
         }
     }

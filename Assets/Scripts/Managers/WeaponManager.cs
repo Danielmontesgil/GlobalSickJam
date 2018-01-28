@@ -7,7 +7,6 @@ public class WeaponManager : MonoBehaviour {
     [SerializeField] public ObjectsData objectsData; //Scriptable
 
     [SerializeField] private List<Weapons> weapons = new List<Weapons>();
-
     private static WeaponManager instance;
     public static WeaponManager Instance
     {
@@ -30,12 +29,12 @@ public class WeaponManager : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+            weapons.Add(gameObject.AddComponent<PushPin>());
+            weapons.Add(gameObject.AddComponent<GasGrenade>());
+            weapons.Add(gameObject.AddComponent<Soap>());
             weapons.Add(gameObject.AddComponent<Syringe>());
             weapons.Add(gameObject.AddComponent<Dust>());
-            weapons.Add(gameObject.AddComponent<PushPin>());
             weapons.Add(gameObject.AddComponent<Settlement>());
-            weapons.Add(gameObject.AddComponent<Soap>());
-            weapons.Add(gameObject.AddComponent<GasGrenade>());
         for(int i = 0; i < objectsData.objectsInformation.Count; i++)
         {
             weapons[i].data = objectsData.objectsInformation[i].data;
@@ -51,6 +50,9 @@ public class WeaponManager : MonoBehaviour {
 
     public void AddWeapon(Weapons weapon)
     {
+
+        weapon.gameObject.SetActive(false);
+
         for (int i = 0; i < weapons.Count; i++)
         {
             weapons[i].enabled = false;
@@ -59,7 +61,11 @@ public class WeaponManager : MonoBehaviour {
         for (int i = 0; i < weapons.Count; i++)
         {
             if (weapon.data.index == weapons[i].data.index)
+            {
                 weapons[i].enabled = true;
+
+            }
+
         }
     }
 }
