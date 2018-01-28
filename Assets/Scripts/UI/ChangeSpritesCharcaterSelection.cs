@@ -8,7 +8,7 @@ public class ChangeSpritesCharcaterSelection : MonoBehaviour, IPointerEnterHandl
 
 	[SerializeField] private Animator animator;
 	[SerializeField] private GameObject buttonToCancel;
-	private bool isSelected;
+	public bool isSelected;
 
 	void Awake()
 	{
@@ -24,9 +24,11 @@ public class ChangeSpritesCharcaterSelection : MonoBehaviour, IPointerEnterHandl
 	}
 
 	public void OnPointerDown (PointerEventData ped) {
-		animator.SetTrigger ("Pressed");
-		isSelected = true;
-		buttonToCancel.SetActive (true);
+		if (!isSelected) {
+			animator.SetTrigger ("Pressed");
+			isSelected = true;
+			buttonToCancel.SetActive (true);
+		}
 	} 
 
 	public void OnPointerExit (PointerEventData ped) {

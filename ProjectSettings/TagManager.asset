@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Waypoint
+  - spawn
+  - vision
   layers:
   - Default
   - TransparentFX
@@ -17,10 +19,10 @@ TagManager:
   - Player
   - Enemy
   - Obstacles
-  - 
-  - 
-  - 
-  - 
+  - Items
+  - Spots
+  - Chairs
+  - Vision
   - 
   - 
   - 
@@ -41,4 +43,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3813460911
+    locked: 0
+  - name: Tables
+    uniqueID: 9015699
+    locked: 0
+  - name: Chairs
+    uniqueID: 2072576231
+    locked: 0
+  - name: Items
+    uniqueID: 14992111
+    locked: 0
+  - name: Enemy
+    uniqueID: 1551347813
+    locked: 0
+  - name: Player
+    uniqueID: 2447588145
     locked: 0

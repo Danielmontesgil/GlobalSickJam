@@ -6,12 +6,13 @@ using UnityEngine.AI;
 namespace Ai {
 	public class EnemyAnimation : MonoBehaviour {
 
-        public EnemyStats enemyStats;
+        private Rigidbody2D rb;
 
-		public float deadZone = 5f;
+        public EnemyStats enemyStats;
+        public StateController stateController;
+        public GameObject attackArea;
+
 		public float speedDampTime = 0.1f;
-		public float angularSpeedDampTime = 0.7f;
-		public float angleResponseTime = 0.6f;
 
 		Transform player;
 		Animator animator;
@@ -21,33 +22,54 @@ namespace Ai {
 
 		public void Init () {
 			animator = GetComponent<Animator> ();
-
-			deadZone *= Mathf.Deg2Rad;
+            rb = GetComponent<Rigidbody2D>();
+            stateController = GetComponent<StateController>();
 		}
 
 		public void Tick () {
             Setup();
-		}
 
-		void OnAnimatorMove () {
-			//navMeshAgent.velocity = animator.deltaPosition / Time.deltaTime;
-			transform.rotation = animator.rootRotation;
-		}
+        }
 
 		void Setup () {
-			animator.SetFloat ("vertical",transform.position.x, speedDampTime, Time.deltaTime);
-			animator.SetFloat ("horizontal", transform.position.y, angularSpeedDampTime, Time.deltaTime);
-		}
 
-		float FindAngle (Vector2 fromVector, Vector2 toVector) {
+			Vector2 targetDir = Vector2.one;
+			if(stateController.chaseTarget != null)
+            	targetDir = stateController.chaseTarget.transform.position - transform.position;
 
-			if (toVector == Vector2.zero) return 0f; 
 
-			float angle = Vector2.Angle (fromVector, toVector);
+            animator.SetFloat("vertical",  -targetDir.normalized.y, speedDampTime, Time.deltaTime);
+            animator.SetFloat("horizontal", targetDir.normalized.x, speedDampTime, Time.deltaTime);
 
-			Vector2 normal = Vector3.Cross (fromVector, toVector);
-
-			return angle;
-		}
+            if (attackArea == null) return;
+            if (-targetDir.normalized.x > .5f)
+            {
+                Vector2 position = new Vector2(-3.26f, -2.26f);
+                attackArea.transform.localPosition = position;
+                Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 90f));
+                attackArea.transform.localRotation = rotation;
+            }
+            else if (-targetDir.normalized.x < -.5f)
+            {
+                Vector2 position = new Vector2(3.26f, -2.26f);
+                attackArea.transform.localPosition = position;
+                Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 270f));
+                attackArea.transform.localRotation = rotation;
+            }
+            else if (targetDir.normalized.y > .01f)
+            {
+                Vector2 position = new Vector2(0.08f, 4.09f);
+                attackArea.transform.localPosition = position;
+                Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 0f));
+                attackArea.transform.localRotation = rotation;
+            }
+            else if (targetDir.normalized.y < -.01f)
+            {
+                Vector2 position = new Vector2(0.31f, -5.86f);
+                attackArea.transform.localPosition = position;
+                Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 180f));
+                attackArea.transform.localRotation = rotation;
+            }
+        }
 	}
 }

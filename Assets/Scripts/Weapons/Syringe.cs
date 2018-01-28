@@ -22,7 +22,6 @@ public class Syringe : Weapons {
             if (targets.Count < 2)
             {
                GameManagers.Instance.UpdateScore(response.score);
-                Debug.Log(GameManagers.Instance.puntajeGlobal);
             }else
             {
                 GameManagers.Instance.UpdateScore(-2);
@@ -33,5 +32,16 @@ public class Syringe : Weapons {
         {
            GameManagers.Instance.UpdateScore(response.score);
         }
+
+        if (response.killYou)
+        {
+            GameManagers.Instance.GameOver(true);
+        }
+		UIManager.Instance.FeedBackText (response.message);
+		if (response.loseObject) {
+			UIManager.Instance.ChangeObjectCanvas (null);
+			this.enabled = false;
+
+		}
     }
 }
