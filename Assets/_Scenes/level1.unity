@@ -258,10 +258,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3701a8e7172df104f96ac0bc34a78ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dia3: 
-  scenaFinalGano: 
-  scenaFinalPerdio: 
-  scenaFinalCapturado: 
+  Dia3: level3
+  scenaFinalGano: Win
+  scenaFinalPerdio: LoseHospital
+  scenaFinalCapturado: JailLose
   time: 180
   lifes: 60
   puntajeGlobal: 0
