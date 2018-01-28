@@ -9,7 +9,8 @@ public class Syringe : Weapons {
 
     // Use this for initialization
     void Start () {
-		
+		vision = FindObjectOfType<Vision> ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 	
 
@@ -18,8 +19,8 @@ public class Syringe : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
-			sound.Play ();
-
+			audioSource.clip = sound;
+			audioSource.Play ();
             Debug.Log(targets.Count);
             if (targets.Count < 2)
             {

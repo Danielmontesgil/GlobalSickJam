@@ -161,19 +161,14 @@ public class GameManagers : MonoBehaviour {
     public int contador=1;
     IEnumerator DayTimer()
     {
-
-        Debug.Log("Empezo");
-
         float t = time;
 
         while(t > 0)
         {
             t -= Time.deltaTime;
 
-            Debug.Log(t);
             yield return null;
         }
-        Debug.Log("Termino");
         SceneController.Instance.RemoveScene();
         contador++;
         string levelName = string.Format("level{0}", contador);

@@ -10,17 +10,18 @@ public class Settlement : Weapons {
     // Use this for initialization
     void Start()
     {
-
+		vision = FindObjectOfType<Vision> ();
+		audioSource = GetComponent<AudioSource> ();
+		audioSource.clip = sound;
     }
 
 
     public override void Attack(InteractResponse response, List<GameObject> targets = null)
     {
+		audioSource.PlayOneShot (sound);
         print(response.canInteract);
         if (response.canInteract)
         {
-			sound.Play ();
-
             GameManagers.Instance.UpdateScore(response.score);
         }
         else

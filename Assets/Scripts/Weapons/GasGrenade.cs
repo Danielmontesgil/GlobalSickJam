@@ -4,11 +4,11 @@ using UnityEngine;
 public class GasGrenade : Weapons {
 
     [SerializeField] private ParticleSystem Gas;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip estallar;
 	void Awake()
     {
 		vision = FindObjectOfType<Vision> ();
+		audioSource = GetComponent<AudioSource> ();
+
     }
 	void Start(){
 	}
@@ -19,14 +19,8 @@ public class GasGrenade : Weapons {
 
         if (response.canInteract)
         {
-			sound.Play ();
-            if (Gas != null)
-                Gas.Play();
-            if (audioSource != null)
-            {
-                if (estallar != null)
-                    audioSource.PlayOneShot(estallar);
-            }
+			audioSource.clip = sound;
+			audioSource.Play ();
             GameManagers.Instance.UpdateScore(response.score);
         }
 

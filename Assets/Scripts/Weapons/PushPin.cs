@@ -10,7 +10,8 @@ public class PushPin : Weapons {
     // Use this for initialization
     void Start()
     {
-
+		vision = FindObjectOfType<Vision> ();
+		audioSource = GetComponent<AudioSource> ();
     }
 
 
@@ -20,7 +21,8 @@ public class PushPin : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
-			sound.Play ();
+			audioSource.clip = sound;
+			audioSource.Play ();
             GameManagers.Instance.UpdateScore(response.score);
         }
         else

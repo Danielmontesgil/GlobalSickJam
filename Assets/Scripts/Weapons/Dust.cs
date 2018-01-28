@@ -11,6 +11,7 @@ public class Dust : Weapons {
     void Start()
     {
 		vision = FindObjectOfType<Vision> ();
+		audioSource = GetComponent<AudioSource> ();
     }
 
 
@@ -19,7 +20,8 @@ public class Dust : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
-			sound.Play ();
+			audioSource.clip = sound;
+			audioSource.Play ();
             GameManagers.Instance.UpdateScore(response.score);
         }
         else
