@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsData: {fileID: 11400000, guid: 00820668473511e4ea22115f3b474cdc, type: 2}
+  vision: {fileID: 0}
   weapons: []
 --- !u!212 &212536967263310728
 SpriteRenderer:
