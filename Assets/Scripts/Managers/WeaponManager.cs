@@ -6,6 +6,7 @@ public class WeaponManager : MonoBehaviour {
 
     [SerializeField] public ObjectsData objectsData; //Scriptable
 	[SerializeField] protected Vision vision;
+	[SerializeField] AudioSource audioSourcePlayer;
 	[SerializeField] public List<Weapons> weapons = new List<Weapons>();
     private static WeaponManager instance;
     public static WeaponManager Instance
@@ -25,7 +26,8 @@ public class WeaponManager : MonoBehaviour {
         else
         {
             Destroy(this.gameObject);
-        }    
+        }
+		audioSourcePlayer = GetComponent<AudioSource> ();
     }
     // Use this for initialization
     void Start () {
@@ -39,6 +41,8 @@ public class WeaponManager : MonoBehaviour {
         {
             weapons[i].data = objectsData.objectsInformation[i].data;
             weapons[i].enabled = false;
+			weapons[i].sendAudioSource = audioSourcePlayer;
+			weapons[i].sendAudio = objectsData.objectsInformation[i].sendAudio;
         }
 	}
 	
