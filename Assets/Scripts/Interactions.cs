@@ -18,20 +18,20 @@ public class Interactions {
 	public static Weapons GetNewWeapon(GameObject player, Weapons weaponToGet, Weapons currentWeapon = null)
 	{
 		if (currentWeapon != null) {
-			DropWeapon (player,currentWeapon);
+			DropWeapon (player,currentWeapon, weaponToGet);
 		}
 		return weaponToGet;
 	}
 
-	private static void DropWeapon(GameObject player,Weapons backWeapon)
+	private static void DropWeapon(GameObject player,Weapons backWeapon, Weapons weaponToGet)
     {
         if (backWeapon != null)
         {
-            backWeapon.transform.position = player.transform.position;
+            backWeapon.transform.position = weaponToGet.gameObject.transform.position;
             backWeapon.gameObject.SetActive(true);
         }
-        player.GetComponentInChildren<Weapons> ();
-		player.transform.SetParent(null);
+  //      player.GetComponentInChildren<Weapons> ();
+		//player.transform.SetParent(null);
 	}
 
 	public static InteractResponse CanInteract(ObjectInformation data, GSJEnums.spots spot)
