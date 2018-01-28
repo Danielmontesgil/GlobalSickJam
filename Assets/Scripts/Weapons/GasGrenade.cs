@@ -8,6 +8,7 @@ public class GasGrenade : Weapons {
     {
 		vision = FindObjectOfType<Vision> ();
 		audioSource = GetComponent<AudioSource> ();
+		if(audioSource != null)
 		audioSource.clip = sound;
 
     }
@@ -17,7 +18,7 @@ public class GasGrenade : Weapons {
 
     public override void Attack(InteractResponse response, List<GameObject> targets = null)
     {
-
+		if(audioSource != null)
 		audioSource.Play ();
         if (response.canInteract)
         {

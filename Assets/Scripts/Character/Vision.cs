@@ -105,9 +105,10 @@ public class Vision : MonoBehaviour
             Spotsitos spot = cosa[0].GetComponent<Spotsitos>();
             if (spot != null)
             {
-				if (currentWeapon != null)
-					
-                    currentWeapon.Attack(Interactions.CanInteract(currentWeapon.data, spot.spotType), cosa);
+				if (currentWeapon != null) {
+					WeaponManager.Instance.PlaySound ();
+					currentWeapon.Attack(Interactions.CanInteract(currentWeapon.data, spot.spotType), cosa);
+				}
             }
         }
     }
