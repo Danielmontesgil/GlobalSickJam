@@ -34,7 +34,7 @@ public class Vision : MonoBehaviour
             dirToTarget = (target.position - transform.position).normalized;
             if (Vector2.Angle(transform.up, dirToTarget) < viewAngle / 2)
             {
-                hit = Physics2D.Raycast(transform.position, dirToTarget, range);
+                hit = Physics2D.Raycast(transform.position, dirToTarget, range, targetMask);
                 if (hit)
                 {
                     Debug.Log(hit.transform.name);
