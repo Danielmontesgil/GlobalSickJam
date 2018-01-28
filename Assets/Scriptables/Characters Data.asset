@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ced27ba043520d41b62c85b1044d0e6, type: 3}
+  m_Name: Characters Data
+  m_EditorClassIdentifier: 
+  characters:
+  - index: 0
+    playerObject: {fileID: 1884724765874546, guid: 6f773f21c8a4c5b46a3a86ba36d60b12,
+      type: 2}
+    icon: {fileID: 21300000, guid: 6c9ffcb2cddf0814fae4401e9e9ba4a5, type: 3}
+  - index: 1
+    playerObject: {fileID: 1711310503189098, guid: 570c802d5cf378745bab1b9fbeeeda4d,
+      type: 2}
+    icon: {fileID: 21300000, guid: d6ef23734f0e2a64e982a66e0f44e26e, type: 3}
+  - index: 2
+    playerObject: {fileID: 1709255158569406, guid: 8e188d48bee7fd74cb7473f2fee2438f,
+      type: 2}
+    icon: {fileID: 21300000, guid: 1e1a8756d2ceb024c8defdc0286241e5, type: 3}
+  - index: 3
+    playerObject: {fileID: 1966320519496718, guid: e2b109372b640be4796adaa4dbf9cc2c,
+      type: 2}
+    icon: {fileID: 21300000, guid: 4444c3cdbb140684cace1bf6c369e3ba, type: 3}

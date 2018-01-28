@@ -12,6 +12,6 @@ public class CharactersData : ScriptableObject {
 public class CharactersInformation
 {
 	[SerializeField] public int index;
-	[SerializeField] public Animator playerAnimator;
+	[SerializeField] public GameObject playerObject;
 	[SerializeField] public Sprite icon;
 }
