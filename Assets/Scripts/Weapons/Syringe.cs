@@ -18,6 +18,8 @@ public class Syringe : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
+			sound.Play ();
+
             Debug.Log(targets.Count);
             if (targets.Count < 2)
             {

@@ -16,8 +16,10 @@ public class GasGrenade : Weapons {
 
     public override void Attack(InteractResponse response, List<GameObject> targets = null)
     {
+
         if (response.canInteract)
         {
+			sound.Play ();
             if (Gas != null)
                 Gas.Play();
             if (audioSource != null)
