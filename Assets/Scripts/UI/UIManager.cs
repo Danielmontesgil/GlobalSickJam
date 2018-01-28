@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour {
 	void Start () {
 		objectName.text = string.Format ("Object: \n");
 		feedBackText.text = string.Format ("LastAction: \n ");
+		objectImage.sprite = voidObject;
 
 	}
 	
@@ -38,9 +39,14 @@ public class UIManager : MonoBehaviour {
 		
 	}
 
-	public void ChangeObjectCanvas(Sprite objectSprite=voidObject, string objectName = "")
+	public void ChangeObjectCanvas(Sprite objectSprite, string objectName = "")
 	{
-		objectImage.sprite = objectSprite;
+		if (objectSprite == null) {
+			objectImage.sprite = voidObject;
+		} else {
+			objectImage.sprite = objectSprite;
+		}
+
 		if(objectName.Equals(""))
 			this.objectName.text = string.Format ("Object: \n");
 		else

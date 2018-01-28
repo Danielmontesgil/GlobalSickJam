@@ -22,15 +22,16 @@ public class SceneController : MonoBehaviour {
 
 	private AsyncOperation loadLevel;
 
-	// Use this for initialization
-	void Start () {
-		if (changeInStart) {
-			LoadLevel ();
-		}
-	}
-
-	private void Awake()
+	void Awake()
 	{
+		if (SceneManager.sceneCount != 1) {
+			for(int i =0; i < SceneManager.sceneCount ; i++)
+			{
+				Scene scene = SceneManager.GetActiveScene ();
+				if (scene != SceneManager.GetSceneAt(i))
+					SceneManager.UnloadSceneAsync (SceneManager.GetSceneAt (i));
+			}
+		}
 		if (instance == null)
 		{
 			instance = this;
@@ -40,6 +41,14 @@ public class SceneController : MonoBehaviour {
 			Destroy(this.gameObject);
 		}    
 	}
+
+	// Use this for initialization
+	void Start () {
+		if (changeInStart) {
+			LoadLevel ();
+		}
+	}
+
 
 	public void OnPlayAgain()
 	{

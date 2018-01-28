@@ -29,5 +29,10 @@ public class Dust : Weapons {
         {
             GameManagers.Instance.GameOver(true);
         }
+		UIManager.Instance.FeedBackText (response.message);
+		if (response.loseObject) {
+			UIManager.Instance.ChangeObjectCanvas (null);
+			this.enabled = false;
+		}
     }
 }
