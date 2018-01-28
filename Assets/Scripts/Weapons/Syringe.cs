@@ -11,16 +11,16 @@ public class Syringe : Weapons {
     void Start () {
 		vision = FindObjectOfType<Vision> ();
 		audioSource = GetComponent<AudioSource> ();
+		audioSource.clip = sound;
 	}
 	
 
 	public override void Attack(InteractResponse response, List<GameObject> targets=null)
     {
+		audioSource.Play ();
         print(response.canInteract);
         if (response.canInteract)
         {
-			audioSource.clip = sound;
-			audioSource.Play ();
             Debug.Log(targets.Count);
             if (targets.Count < 2)
             {
