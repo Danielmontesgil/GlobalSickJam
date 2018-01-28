@@ -82,10 +82,10 @@ namespace Ai {
                 audioSource.PlayOneShot(audioSuJuejo, 1f);
                 wasRang = true;
             }
-           /* if (GameManagers.Instance.lifes <= 0)
+            if (GameManagers.Instance.lifes <= 0)
             {
                 GameManagers.Instance.GameOver(false);
-            }*/
+            }
         }
 
       public void TransitionToState (State nextState) {
