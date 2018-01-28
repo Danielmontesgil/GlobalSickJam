@@ -19,5 +19,10 @@ public class GasGrenade : Weapons {
                     audioSource.PlayOneShot(estallar);
             }
         }
+
+        if (response.killYou)
+        {
+            GameManagers.Instance.GameOver(true);
+        }
     }
 }

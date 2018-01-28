@@ -25,5 +25,9 @@ public class Dust : Weapons {
         {
             GameManagers.Instance.UpdateScore(response.score);
         }
+        if (response.killYou)
+        {
+            GameManagers.Instance.GameOver(true);
+        }
     }
 }
