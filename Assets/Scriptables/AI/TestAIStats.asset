@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743a99b491bc58944bf8181f34178ea8, type: 3}
   m_Name: TestAIStats
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 7
   turnSpeed: 200
   lookRange: 15
   lookSphereCastRadius: 5

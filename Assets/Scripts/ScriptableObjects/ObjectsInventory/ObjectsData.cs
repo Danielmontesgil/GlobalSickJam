@@ -5,7 +5,7 @@ using System;
 
 [CreateAssetMenu(fileName = "Inventory", menuName = "Objects", order = 1)]
 public class ObjectsData : ScriptableObject {
-	[SerializeField] private List<ObjectInformation> objectsInformation;
+	[SerializeField] public List<Weapons> objectsInformation;
 }
 
 [Serializable]

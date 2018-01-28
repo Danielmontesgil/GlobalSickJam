@@ -15,17 +15,22 @@ public class Interactions {
 		return response;
 	}
 
-	public static Weapons GetNewWeapon(GameObject player, Weapons currentWeapon, Weapons weaponToGet)
+	public static Weapons GetNewWeapon(GameObject player, Weapons weaponToGet, Weapons currentWeapon = null)
 	{
 		if (currentWeapon != null) {
-			DropWeapon (player);
+			DropWeapon (player,currentWeapon);
 		}
 		return weaponToGet;
 	}
 
-	private static void DropWeapon(GameObject player)
-	{
-		player.GetComponentInChildren<Weapons> ();
+	private static void DropWeapon(GameObject player,Weapons backWeapon)
+    {
+        if (backWeapon != null)
+        {
+            backWeapon.transform.position = player.transform.position;
+            backWeapon.gameObject.SetActive(true);
+        }
+        player.GetComponentInChildren<Weapons> ();
 		player.transform.SetParent(null);
 	}
 
