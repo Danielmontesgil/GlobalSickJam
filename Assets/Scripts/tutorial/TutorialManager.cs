@@ -65,7 +65,7 @@ public class TutorialManager : MonoBehaviour {
 			    Pantallas[3].SetActive(false);
 			    Pantallas[4].SetActive(true);
 				Instrucciones.transform.localPosition = new Vector3(-0.5f,185.5f,0f);
-				Instrucciones.GetComponent<RectTransform>().sizeDelta = new Vector3(459.3f,230f,0f);
+				Instrucciones.GetComponent<RectTransform>().sizeDelta = new Vector3(601.8f,265.2f,0f);
 				TxtInstrucciones.text="<b>All In</b> aparecerá en el mapa patrullando para preguntar sobre como esta tu juego, evitalo o perderás vida.";
                 yield return new WaitForSeconds(0.1f);
 			break;
