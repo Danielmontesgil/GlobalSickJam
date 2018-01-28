@@ -12,13 +12,18 @@ public class Dust : Weapons {
     {
 		vision = FindObjectOfType<Vision> ();
 		audioSource = GetComponent<AudioSource> ();
-		audioSource.clip = sound;
     }
+
+	void OnEnable(){
+		if(audioSource != null)
+			audioSource.clip = sound;
+	}
 
 
     public override void Attack(InteractResponse response, List<GameObject> targets = null)
     {
-		audioSource.Play ();
+		if(audioSource != null)
+			audioSource.Play ();
         print(response.canInteract);
         if (response.canInteract)
         {

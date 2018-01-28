@@ -51,8 +51,6 @@ namespace Ai {
 
       for (int i = 0; i < wayPointList.Length; ++i) {
         wayPointList[i] = wayPointObjects[i].transform;
-
-        Debug.Log (wayPointList.Length);
       }
     }
 

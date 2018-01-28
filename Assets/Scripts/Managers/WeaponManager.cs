@@ -51,6 +51,11 @@ public class WeaponManager : MonoBehaviour {
 		
 	}
 
+	public void PlaySound()
+	{
+		GetComponent<AudioSource> ().Play ();
+	}
+
 
     public void AddWeapon(Weapons weapon)
     {
