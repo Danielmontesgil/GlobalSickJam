@@ -7,7 +7,8 @@ public class GameManagers : MonoBehaviour {
     private static GameManagers instance;
 
 	 public static GameManagers Instance { get {return instance;}}
-     
+
+    public int lifes = 50;
 	 public int puntajeGlobal=0;
 	 //Dia 1
      //variable que dice que mesa puso chinches
@@ -40,7 +41,7 @@ public class GameManagers : MonoBehaviour {
     {
         puntajeGlobal += points;
     }
-	
+
 	public int PuntajeGlob{
         get { return puntajeGlobal; }
         set { puntajeGlobal = value; }
@@ -88,6 +89,7 @@ public class GameManagers : MonoBehaviour {
 		set{Dia3Jeringa=value;}
 	}
 	void Start () {
+
 		if(instance==null){
 			instance=this;
 		}else{

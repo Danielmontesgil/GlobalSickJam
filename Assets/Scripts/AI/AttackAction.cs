@@ -16,11 +16,11 @@ namespace Ai {
 				controller.dist = Vector3.Distance (controller.chaseTarget.transform.position, controller.transform.position);
 
 				if (controller.dist <= controller.enemyStats.attackRange) {
-					if (controller.CheckIfCountDownElapse (controller.enemyStats.attackRate)) {
+					//if (controller.CheckIfCountDownElapse (controller.enemyStats.attackRate)) {
 
-
+                        GameManagers.Instance.lifes--;
 						
-					}
+					//}
 				}
 			}
 		}

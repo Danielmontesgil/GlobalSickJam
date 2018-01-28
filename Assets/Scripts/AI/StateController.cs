@@ -12,8 +12,8 @@ namespace Ai {
     public State remainState;
     public Transform[] wayPointList;
     public Collider[] colliders;
-    public GameObject vision;
-
+    public AudioSource audioSource;
+    public AudioClip audioSuJuejo;
 
     [HideInInspector] public int nextWayPoint;
     [HideInInspector] public int randomAttack;
@@ -24,6 +24,8 @@ namespace Ai {
     [HideInInspector] public new Transform transform;
 
     [HideInInspector] public float delta;
+
+    bool wasRang = false;
 
     private EnemyAnimation _enemyAnimation;
     public EnemyAnimation enemyAnimation {
@@ -36,13 +38,14 @@ namespace Ai {
 
     void Awake () {
       transform = GetComponent<Transform> ();
+            audioSource = GetComponent<AudioSource>();
 
       enemyAnimation.Init();
 
-      /*if (chaseTarget == null)
-      chaseTarget = GameObject.FindGameObjectWithTag ("Player");*/
+      if (chaseTarget == null)
+      chaseTarget = GameObject.FindGameObjectWithTag ("Player");
 
-            GameObject[] wayPointObjects = GameObject.FindGameObjectsWithTag ("Waypoint");
+      GameObject[] wayPointObjects = GameObject.FindGameObjectsWithTag ("Waypoint");
       wayPointList = new Transform[wayPointObjects.Length];
 
       for (int i = 0; i < wayPointList.Length; ++i) {
@@ -58,10 +61,21 @@ namespace Ai {
       currentState.UpdateState (this);
 
             enemyAnimation.Tick();
+            UpdateLife();
     }
 
+    void UpdateLife()
+        {
+            if (GameManagers.Instance.lifes == 50 && !wasRang)
+            {
+                if (audioSource.isPlaying) return;
+                if (audioSuJuejo == null) return;
+                audioSource.PlayOneShot(audioSuJuejo, 1f);
+                wasRang = true;
+            }
+        }
 
-    public void TransitionToState (State nextState) {
+      public void TransitionToState (State nextState) {
       if (nextState != remainState) {
         currentState = nextState;
         OnExitState ();
@@ -73,8 +87,9 @@ namespace Ai {
       return (stateTimeElapsed >= duration);
     }
 
-    public void OnExitState () {
-      stateTimeElapsed = 0;
+        public void OnExitState()
+        {
+            stateTimeElapsed = 0;
+        }
     }
-  }
 }
