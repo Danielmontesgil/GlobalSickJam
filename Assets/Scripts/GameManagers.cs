@@ -132,6 +132,11 @@ public class GameManagers : MonoBehaviour {
     {
         if (SceneManager.GetActiveScene().name == Dia3)
         {
+            if(t <= 0)
+            {
+                SceneManager.LoadScene(scenaFinalPerdio);
+            }
+
             if (puntajeGlobal <= 9)
             {
                 SceneManager.LoadScene(scenaFinalPerdio);
