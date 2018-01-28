@@ -76,8 +76,16 @@ public class TutorialManager : MonoBehaviour {
 				Instrucciones.GetComponent<RectTransform>().sizeDelta = new Vector3(459.3f,230f,0f);
 				TxtInstrucciones.text="Ten cuidado con el tiempo, solo tienes 48 horas.";
                 yield return new WaitForSeconds(0.1f);
-			break;
-			case 6:
+                break;
+             case 6:
+                Pantallas[5].SetActive(false);
+                Pantallas[1].SetActive(true);
+                Instrucciones.transform.localPosition = new Vector3(-41f, 94.14f, 0f);
+                Instrucciones.GetComponent<RectTransform>().sizeDelta = new Vector3(595.7f, 322.8f, 0f);
+                TxtInstrucciones.text = "El Objetivo de juego es enfermar a todos los otros equipos para que tu equipo sea el unico que termine su juego en el jam.";
+                yield return new WaitForSeconds(0.1f);
+                break;
+            case 7:
 			    BtnSig.interactable=false;
 				Fades[1].SetActive(true);
                 yield return new WaitForSeconds(1.2f);

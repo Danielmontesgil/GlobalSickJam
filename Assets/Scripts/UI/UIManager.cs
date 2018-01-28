@@ -72,6 +72,6 @@ public class UIManager : MonoBehaviour {
 
 	public void FeedBackText(string message)
 	{
-		feedBackText.text = string.Format ("LastAction: \n {0}", message);
+		feedBackText.text = string.Format ("LastAction: {0}", message);
 	}
 }
