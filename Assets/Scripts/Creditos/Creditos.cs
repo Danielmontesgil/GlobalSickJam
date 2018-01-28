@@ -17,6 +17,6 @@ public class Creditos : MonoBehaviour {
 	public IEnumerator ActivarFadeYpasarEscena(){
 		fades[1].SetActive(true);
 		yield return new WaitForSeconds(1f);
-		SceneManager.LoadScene("IntroMenu");
+        Application.Quit();
 	}
 }

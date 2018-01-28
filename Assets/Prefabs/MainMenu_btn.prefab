@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bede9f07a94b5be4580119c660a9c7c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuScene: IntroMenu
+  mainMenuScene: Creditos
 --- !u!114 &114471763223796584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,7 +170,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Main Menu
+  m_Text: Credits
 --- !u!222 &222054977039847686
 CanvasRenderer:
   m_ObjectHideFlags: 1

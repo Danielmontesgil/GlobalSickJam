@@ -35,3 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/JailLose.unity
     guid: b041865b49c26f94e9b9d8ed1416083c
+  - enabled: 1
+    path: Assets/_Scenes/Creditos.unity
+    guid: 5b4da04d5cf2a42458f06c3fdb0b61f3

@@ -42,7 +42,7 @@ public class TutorialManager : MonoBehaviour {
 			    Pantallas[1].SetActive(true);
 				Instrucciones.transform.localPosition = new Vector3(74.8f,37.2f,0f);
 				Instrucciones.GetComponent<RectTransform>().sizeDelta = new Vector3(459.3f,230f,0f);
-				TxtInstrucciones.text="Deveras Buscar items en el mapa para usarlos.";
+				TxtInstrucciones.text="Deberas Buscar items en el mapa para usarlos.";
                 yield return new WaitForSeconds(0.1f);
 			break;
 			case 2:
@@ -58,7 +58,7 @@ public class TutorialManager : MonoBehaviour {
 			    Pantallas[3].SetActive(true);
 				Instrucciones.transform.localPosition = new Vector3(-266.96f,40f,0f);
 				Instrucciones.GetComponent<RectTransform>().sizeDelta = new Vector3(650f,319.6f,0f);
-				TxtInstrucciones.text="Teniendo un item debes analizar donde este deve ser usado, al usar un item aparecera un retroalimentación sobre su resultado.";
+				TxtInstrucciones.text="Teniendo un item debes analizar donde este debe ser usado, al usar un item aparecera un retroalimentación sobre su resultado.";
                 yield return new WaitForSeconds(0.1f);
 			break;
 			case 4:
