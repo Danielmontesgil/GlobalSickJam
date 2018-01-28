@@ -22,7 +22,6 @@ public class Syringe : Weapons {
             if (targets.Count < 2)
             {
                GameManagers.Instance.UpdateScore(response.score);
-                Debug.Log(GameManagers.Instance.puntajeGlobal);
             }else
             {
                 GameManagers.Instance.UpdateScore(-2);

@@ -39,17 +39,20 @@ public class Interactions {
 		InteractResponse response = new InteractResponse();
 		switch (spot) {
 		case GSJEnums.spots.jara:
-			response.canInteract = false;
+			response.canInteract = true;
 			response.killYou = false;
 			response.loseObject = true;
 			response.score = 0;
 			response.message = "El jara ha tomado prestado por siempre tu objeto";
-			break;
+                Debug.Log("aora io soi pior");
+                break;
 		case GSJEnums.spots.mono:
-			response.canInteract = false;
+			response.canInteract = true;
 			response.killYou = true;
 			response.loseObject = true;
-			response.message = "Tu arma es efectiva pero el mono es PIOR";
+                response.score = -999999999;
+                response.message = "Tu arma es efectiva pero el mono es PIOR";
+                Debug.Log("soi pior");
 			break;
 		case GSJEnums.spots.ducha:
 			if (data.objectType == GSJEnums.objectType.soap) {

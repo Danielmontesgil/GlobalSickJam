@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 61493178585851954}
   - component: {fileID: 114186880174498256}
   m_Layer: 8
-  m_Name: Pawi
+  m_Name: Pawi 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ Transform:
   m_GameObject: {fileID: 1966320519496718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.12, y: 0.12, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children:
   - {fileID: 4002957425529502}
   m_Father: {fileID: 0}
@@ -162,14 +162,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewAngle: 89
-  range: 0.85
+  range: 1
   targertsInViewRadius:
   - {fileID: 0}
   - {fileID: 0}
   targets: []
   targetMask:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 4294966015
   obstacleMask:
     serializedVersion: 2
     m_Bits: 4294967039
