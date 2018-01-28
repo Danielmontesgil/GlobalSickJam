@@ -40,6 +40,7 @@ public class Syringe : Weapons {
 		UIManager.Instance.FeedBackText (response.message);
 		if (response.loseObject) {
 			UIManager.Instance.ChangeObjectCanvas (null);
+			GetComponentInChildren<Vision> ().currentWeapon = null;
 			this.enabled = false;
 
 		}

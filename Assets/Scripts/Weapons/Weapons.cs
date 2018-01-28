@@ -7,7 +7,7 @@ using System;
 public class Weapons : MonoBehaviour {
 
     [SerializeField] public ObjectInformation data;
-
+	protected  Vision vision;
     public virtual void Attack(InteractResponse response,List<GameObject> targets=null)
     {
 

@@ -6,10 +6,13 @@ public class GasGrenade : Weapons {
     [SerializeField] private ParticleSystem Gas;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip estallar;
-    void Start()
+	void Awake()
     {
-
+		vision = FindObjectOfType<Vision> ();
     }
+	void Start(){
+	}
+		
 
     public override void Attack(InteractResponse response, List<GameObject> targets = null)
     {
@@ -32,7 +35,13 @@ public class GasGrenade : Weapons {
 		UIManager.Instance.FeedBackText (response.message);
 		if (response.loseObject) {
 			UIManager.Instance.ChangeObjectCanvas (null);
-			this.enabled = false;
+			//vision.LoseWeapon ();
+			Vision.Instance.LoseWeapon ();
+			for (int i = 0; i < WeaponManager.Instance.weapons.Count; i++) {
+				if (data.index == WeaponManager.Instance.weapons [i].data.index) {
+					WeaponManager.Instance.weapons [i].enabled = false;
+				}
+			}
 
 		}
     }

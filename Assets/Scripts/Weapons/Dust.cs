@@ -10,7 +10,7 @@ public class Dust : Weapons {
     // Use this for initialization
     void Start()
     {
-
+		vision = FindObjectOfType<Vision> ();
     }
 
 
@@ -32,6 +32,7 @@ public class Dust : Weapons {
 		UIManager.Instance.FeedBackText (response.message);
 		if (response.loseObject) {
 			UIManager.Instance.ChangeObjectCanvas (null);
+			this.gameObject.GetComponentInChildren<Vision> ().currentWeapon = null;
 			this.enabled = false;
 		}
     }
