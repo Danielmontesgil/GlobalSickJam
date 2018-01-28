@@ -33,8 +33,13 @@ public class PushPin : Weapons {
 		UIManager.Instance.FeedBackText (response.message);
 		if (response.loseObject) {
 			UIManager.Instance.ChangeObjectCanvas (null);
-			this.gameObject.GetComponentInChildren<Vision> ().currentWeapon = null;
-			this.enabled = false;
+			//vision.LoseWeapon ();
+			Vision.Instance.LoseWeapon ();
+			for (int i = 0; i < WeaponManager.Instance.weapons.Count; i++) {
+				if (data.index == WeaponManager.Instance.weapons [i].data.index) {
+					WeaponManager.Instance.weapons [i].enabled = false;
+				}
+			}
 
 		}
     }
