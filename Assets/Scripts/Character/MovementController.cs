@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : Vision {
+public class MovementController : MonoBehaviour {
 
     private float speed;
 
@@ -51,14 +51,7 @@ public class MovementController : Vision {
         horizontal = Input.GetAxis(StaticsInput.Horizontal);
         vertical = Input.GetAxis(StaticsInput.Vertical);
 
-        if (Mathf.Abs(horizontal) > .1f)
-        move.y = 0;
-        else
         move.y = vertical;
-
-        if (Mathf.Abs(vertical) > .1f)
-        move.x = 0;
-        else
         move.x = horizontal;
         
 
@@ -68,24 +61,23 @@ public class MovementController : Vision {
     void Rotation()
     {
         if (vision == null) return;
-
         if (horizontal > 0)
         {
-            Quaternion rotation = Quaternion.Euler(new Vector2(0, 90f));
-            vision.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 270f));
+            vision.transform.localRotation = rotation;
         }else if (horizontal < 0)
         {
-            Quaternion rotation = Quaternion.Euler(new Vector2(0, -90f));
-            vision.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+            vision.transform.localRotation = rotation;
         }else if (vertical > 0)
         {
-            Quaternion rotation = Quaternion.Euler(new Vector2(0, 0f));
-            vision.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 0f));
+            vision.transform.localRotation = rotation;
         }
         else if (vertical < 0)
         {
-            Quaternion rotation = Quaternion.Euler(new Vector2(0, 180f));
-            vision.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, 180f));
+            vision.transform.localRotation = rotation;
         }
 
     }

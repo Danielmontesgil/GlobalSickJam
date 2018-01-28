@@ -5,8 +5,6 @@ using UnityEngine;
 public class Syringe : Weapons {
 
     [SerializeField]
-    BoxCollider2D syringe;
-    [SerializeField]
     LayerMask layerMask;
 
     // Use this for initialization
@@ -20,10 +18,10 @@ public class Syringe : Weapons {
         print(response.canInteract);
         if (response.canInteract)
         {
+            Debug.Log(targets.Count);
             if (targets.Count < 2)
             {
                GameManagers.Instance.UpdateScore(response.score);
-                Debug.Log(GameManagers.Instance.puntajeGlobal);
             }else
             {
                 GameManagers.Instance.UpdateScore(-2);
