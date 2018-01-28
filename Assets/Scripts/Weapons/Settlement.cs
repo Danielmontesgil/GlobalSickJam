@@ -27,5 +27,9 @@ public class Settlement : Weapons {
         }
 		UIManager.Instance.FeedBackText (response.message);
 
+        if (response.killYou)
+        {
+            GameManagers.Instance.GameOver(true);
+        }
     }
 }

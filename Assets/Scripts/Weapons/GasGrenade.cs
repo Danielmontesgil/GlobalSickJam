@@ -24,11 +24,10 @@ public class GasGrenade : Weapons {
             }
             GameManagers.Instance.UpdateScore(response.score);
         }
-        else
-        {
-            GameManagers.Instance.UpdateScore(response.score);
-        }
-		UIManager.Instance.FeedBackText (response.message);
 
+        if (response.killYou)
+        {
+            GameManagers.Instance.GameOver(true);
+        }
     }
 }

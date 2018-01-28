@@ -32,7 +32,10 @@ public class Syringe : Weapons {
         {
            GameManagers.Instance.UpdateScore(response.score);
         }
-		UIManager.Instance.FeedBackText (response.message);
 
+        if (response.killYou)
+        {
+            GameManagers.Instance.GameOver(true);
+        }
     }
 }
