@@ -19,6 +19,7 @@ public class GameManagers : MonoBehaviour {
     private string scenaFinalCapturado;
     [SerializeField]
     public float time = 180;
+    [HideInInspector][SerializeField] public float t;
 
     public int lifes = 100;
 	 public int puntajeGlobal=0;
@@ -161,7 +162,7 @@ public class GameManagers : MonoBehaviour {
     public int contador=1;
     IEnumerator DayTimer()
     {
-        float t = time;
+        t = time;
 
         while(t > 0)
         {

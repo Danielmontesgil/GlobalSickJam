@@ -16,6 +16,10 @@ public class UIManager : MonoBehaviour {
 	[SerializeField] private Text objectName;
 	[SerializeField] private Text feedBackText;
 	[SerializeField] private Sprite voidObject;
+    [SerializeField] private Text timeText;
+
+    string minutes;
+    string seconds;
 
 
 	void Awake()
@@ -36,7 +40,7 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        UpdateTimeCanvas();
 	}
 
 	public void ChangeObjectCanvas(Sprite objectSprite, string objectName = "")
@@ -52,6 +56,14 @@ public class UIManager : MonoBehaviour {
 		else
 			this.objectName.text = string.Format ("Object: \n {0}", objectName);
 	}
+
+    public void UpdateTimeCanvas()
+    {
+        minutes = ((int)GameManagers.Instance.t / 60).ToString();
+        seconds = (GameManagers.Instance.t % 60).ToString("f0");
+
+        timeText.text = minutes + " : " + seconds;
+    }
 
 	public void ChangeCharactersCanvas(Sprite characterSprite)
 	{
