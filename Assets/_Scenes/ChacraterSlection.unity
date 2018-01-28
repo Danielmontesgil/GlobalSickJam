@@ -573,7 +573,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 364364850}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1559945684}
+        m_MethodName: LoadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &364364850
@@ -2734,6 +2745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1559945682}
   - component: {fileID: 1559945683}
+  - component: {fileID: 1559945684}
   m_Layer: 0
   m_Name: CharacterSelection
   m_TagString: Untagged
@@ -2771,6 +2783,21 @@ MonoBehaviour:
   - {fileID: 1233306287}
   - {fileID: 1717219588}
   startButton: {fileID: 1534110743}
+--- !u!114 &1559945684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1559945681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f45621617ae2488e3b01daa054b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuCamera: {fileID: 0}
+  levelName: Tutorial
+  timeToLoadLevel: 0
+  changeInStart: 0
 --- !u!1 &1642855821
 GameObject:
   m_ObjectHideFlags: 0

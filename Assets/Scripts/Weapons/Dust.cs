@@ -10,7 +10,7 @@ public class Dust : Weapons {
     // Use this for initialization
     void Start()
     {
-
+		vision = FindObjectOfType<Vision> ();
     }
 
 
@@ -32,7 +32,14 @@ public class Dust : Weapons {
 		UIManager.Instance.FeedBackText (response.message);
 		if (response.loseObject) {
 			UIManager.Instance.ChangeObjectCanvas (null);
-			this.enabled = false;
+			//vision.LoseWeapon ();
+			Vision.Instance.LoseWeapon ();
+			for (int i = 0; i < WeaponManager.Instance.weapons.Count; i++) {
+				if (data.index == WeaponManager.Instance.weapons [i].data.index) {
+					WeaponManager.Instance.weapons [i].enabled = false;
+				}
+			}
+
 		}
     }
 }

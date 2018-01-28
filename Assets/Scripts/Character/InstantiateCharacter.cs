@@ -7,6 +7,7 @@ public class InstantiateCharacter : MonoBehaviour {
 	[SerializeField] private CharactersData characters;
 	private int indexPlayerToUse;
 	private GameObject spawnPoint;
+	private GameObject player;
 	// Use this for initialization
 
 	void Awake()
@@ -16,10 +17,12 @@ public class InstantiateCharacter : MonoBehaviour {
 	void OnEnable()
 	{
 		SceneController.onLoadAdd += SpawnCharacter;
+		SceneController.onUnload += SceneEnd;
 	}
 	void OnDisable()
 	{
 		SceneController.onLoadAdd -= SpawnCharacter;
+		SceneController.onUnload -= SceneEnd;
 	}
 
 	void Start () 
@@ -36,12 +39,17 @@ public class InstantiateCharacter : MonoBehaviour {
 		
 	}
 
+	private void SceneEnd()
+	{
+		Destroy (player);
+	}
+
 	private void SpawnCharacter()
 	{
 		spawnPoint = GameObject.FindGameObjectWithTag ("spawn");
 		for (int i = 0; i < characters.characters.Count; i++) {
 			if (characters.characters [i].index == indexPlayerToUse)
-				Instantiate(characters.characters [i].playerObject, spawnPoint.transform.position, characters.characters [i].playerObject.transform.rotation);
+				player = Instantiate(characters.characters [i].playerObject, spawnPoint.transform.position, characters.characters [i].playerObject.transform.rotation);
 		}
 	}
 }

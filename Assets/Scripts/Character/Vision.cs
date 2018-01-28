@@ -18,6 +18,23 @@ public class Vision : MonoBehaviour
 
     public Weapons currentWeapon ;
 
+	private static Vision instance;
+	public static Vision Instance{
+	
+		get{
+			return instance;
+		}
+	
+	}
+	public void Awake(){
+		if (instance == null) {
+			instance = this;
+		} else {
+			Destroy (this.gameObject);
+		}
+
+	}
+
     void Update()
     {
         FindVisibleTargets();
@@ -88,11 +105,17 @@ public class Vision : MonoBehaviour
             Spotsitos spot = cosa[0].GetComponent<Spotsitos>();
             if (spot != null)
             {
-                if (currentWeapon != null)
+				if (currentWeapon != null)
+					
                     currentWeapon.Attack(Interactions.CanInteract(currentWeapon.data, spot.spotType), cosa);
-                
             }
         }
     }
+
+	public void LoseWeapon()
+	{
+		currentWeapon = null;
+		//currentWeapon = Vision.lastWeapon;
+	}
 }
 
