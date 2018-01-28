@@ -5,8 +5,8 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour {
 
     [SerializeField] public ObjectsData objectsData; //Scriptable
-
-    [SerializeField] private List<Weapons> weapons = new List<Weapons>();
+	[SerializeField] protected Vision vision;
+	[SerializeField] public List<Weapons> weapons = new List<Weapons>();
     private static WeaponManager instance;
     public static WeaponManager Instance
     {
